@@ -1,8 +1,8 @@
 ## createCase
 
-> createCase `identifier`, `title`, `colour`, `author` => Case
+> createCase `identifier`, `title`, `colour`, `author` => `Case`
 > 
-> createCase `net`, `title`, `colour`, `author` => Case
+> createCase `net`, `title`, `colour`, `author` => `Case`
 
 It creates a new instance of the newest version of net identified by the `identifier`. If the `title` is not specified, 
 nets default case name is used. If the `colour` is `null`, the default colour is used (black at the moment).
