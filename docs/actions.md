@@ -8,6 +8,10 @@
 
 [changeCaseProperty.md](actions/changeCaseProperty.md ':include')
 
+[close.md](actions/close.md ':include')
+
+[execute.md](actions/execute.md ':include')
+
 [createCase.md](actions/createCase.md ':include')
 
 [findCases.md](actions/findCases.md ':include')
@@ -17,10 +21,6 @@
 [findTasks.md](actions/findTasks.md ':include')
 
 [findTask.md](actions/findTask.md ':include')
-
-[close.md](actions/close.md ':include')
-
-[execute.md](actions/execute.md ':include')
 
 [assignTask.md](actions/assignTask.md ':include')
 
