@@ -1,4 +1,5 @@
 * [Introduction](/)
-* [Objects](objects.md)
+* [Get Started](get_started.md)
+* [Process](process.md)
 * [Action API](actions.md)
 * [Examples](examples.md)

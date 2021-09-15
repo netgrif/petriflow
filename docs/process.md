@@ -1,8 +1,47 @@
-# Objects
+# Petriflow Application Process
 
 Every source code of Petriflow process is a XML file with well-defined structure. The process document consists of
-process metadata like `id`, `version` etc., structural data (transitions, places, arcs), roles, data and their mappings
+process metadata like `id`, `version` etc., structural workflow data (transitions, places, arcs), roles, data and their mappings
 to other objects of the process.
+
+#### Workflow
+As a workflow model, or process, Petriflow uses place/transition Petri nets enriched by reset arcs, inhibitor arcs and read arcs. 
+Petri nets offers accurate and matematically defined structure which has several benefits, like behaviour simulation, reachability and complaxety analyzis and many more.
+Every algorithm can be implemented in Petri nets and so in Petriflow.
+
+[Learn more about process structre](#process)
+
+#### Roles
+Important layer in every is application is access control. Petriflow offers system of process roles to control which user (or system) can do (or cannot do)
+which activity in a process. Process roles are bound to transitions, their mapping object defines permissions on the mapped transition.
+
+[Learn more about process roles](#role)
+
+If you need more granular control, i.e. permissions system on the exact user, see Petriflow usage of user lists 
+
+TODO - Work in progress
+
+#### Data variables
+Data layer is another addition to Petri Nets in Petriflow language. As in every system data layer in Petriflow defines data model of a application process.
+Every instance of the process will have the same data model but with different values. Data layer is created with two kind of object.
+Data variables represent all attributes of a process instance called case during its life-cycle. They are attribute definition describing type, id, title and many more properties.
+Data fields are mapping obejct for data variables in transitions. Data fields are bases for transition forms. They can further define behaviour of the referenced variable
+or override some of its properties from its variable definition only in scope of the bounded transition.
+
+[Learn more about data variable](#data)
+
+
+#### Actions
+Last but not least Petriflow core component are Actions.
+Actions are pieces of Groovy/Java code that define reactions to events invoked in process execution. Petriflow recognised several types of evetns on almost every of its components.
+Events on task represent change of state of the task (assign event, finish event, cancel event).
+Events on data variable (or on data field) are triggered with every data manipulation.
+There also evetns on the case object or on the process it self (process deployment, creation/deletion of the case etc.).
+Thanks to the robust Action API events can be chained and further enriched business logic of an application process.
+
+[Learn more about Actions](actions.md)
+
+---
 
 ## Process
 
