@@ -1,5 +1,7 @@
 * [Introduction](/)
 * [Get Started](get_started.md)
-* [Process](process.md)
+* [Specification](specification.md)
 * [Action API](actions.md)
+* [Extensions](extensions.md)
+* [Cookbook](cookbook.md)
 * [Examples](examples.md)

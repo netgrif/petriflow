@@ -35,6 +35,7 @@ and then deploy it to [Application Engine](https://netgrif.com/products/#nae).
 - **Gabriel Juhás** - Creator / Research lead
 - **Juraj Mažári** - Creator / Researcher
 - **Milan Mladoniczky** - Creator / Researcher / Maintainer 
+
 ## Contributors
 
 TODO add automatic contributors list
