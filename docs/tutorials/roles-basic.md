@@ -58,6 +58,20 @@ In order to assign roles to tasks you have to:
     <li>For trantition "Second" click once in row role_1, column Perform.</li>
 </ol>
 
+_Detail of how to get to Manage Permissions:_
+
+<p align="center">
+    <img src="_media/roles-basic/3.png">
+</p>
+
+_Detail of how to assign role to Perform:_
+
+<p align="center">
+    <img src="_media/roles-basic/4.png">
+</p>
+
+_Example of roles assignment to tasks:_
+
 <p align="center">
     <video controls style="height: 400px;">
       <source src="_media/roles-basic/2.mp4" type="video/mp4">
@@ -65,6 +79,14 @@ In order to assign roles to tasks you have to:
 </p>
 
 ### Upload process into the Application Engine
+
+Before you will upload the process with all roles into the Application Engine, you have to download/save it.
+
+_Detail of how to export created process:_
+
+<p align="center">
+    <img src="_media/roles-basic/5.png">
+</p>
 
 <p align="center">
     <video controls style="height: 400px;">
@@ -80,7 +102,7 @@ In order to assign roles to tasks you have to:
     </video>
 </p>
 
-## Example process
+### Example process
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
