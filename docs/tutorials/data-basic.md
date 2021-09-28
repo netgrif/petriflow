@@ -46,7 +46,7 @@ _Detail of data edit view:_
 
 ### Drag'n'Drop of existing elements into the data form grid (Form edit view)
 
-When you have placed at least one transition (task) into the canvas, you are able to create data forms. One data form can be assigned to one task. To create a data form you have to use the right mouse click while the Select tool is selected in Edit view.
+When you have placed at least one transition (task) into the canvas, you are able to create data forms. One data form can be assigned to one task. To create a data form you have to use the right mouse click while the Select tool is selected in Edit view and choose "Create form". 
 
 <p align="center">
     <img src="_media/data-basic/9.png">
