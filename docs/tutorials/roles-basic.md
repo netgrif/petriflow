@@ -17,5 +17,25 @@ You will build a process-driven application that contains few basic roles. You w
 ### Creation of process and basic roles
 
 <p align="center">
-    <img src="_media/roles-basic/1.png">
+    <video controls autoplay style="height: 400px;">
+      <source src="_media/roles-basic/1.mp4" type="video/mp4">
+    </video>
+</p>
+
+<p align="center">
+    <video controls autoplay style="height: 400px;">
+      <source src="_media/roles-basic/2.mp4" type="video/mp4">
+    </video>
+</p>
+
+<p align="center">
+    <video controls autoplay style="height: 400px;">
+      <source src="_media/roles-basic/3.mp4" type="video/mp4">
+    </video>
+</p>
+
+<p align="center">
+    <video controls autoplay style="height: 400px;">
+      <source src="_media/roles-basic/4.mp4" type="video/mp4">
+    </video>
 </p>
