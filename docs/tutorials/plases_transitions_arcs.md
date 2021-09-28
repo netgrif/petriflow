@@ -17,6 +17,7 @@ You will build a simple Petriflow model composed of only three basic components:
 Petri nets are composed of two main components.
 **Transitions (squares)** and **places (circles)**.
 A place can contain **tokens (resources of places, a discrete number of marks).**
+
 <p align="center">
     <img src="_media/plases_transitions_arcs/t1.png" height="150">
     <img src="_media/plases_transitions_arcs/p1.png" height="150">
@@ -25,6 +26,7 @@ A place can contain **tokens (resources of places, a discrete number of marks).*
 
 Transitions and places are connected with **arc (directed line)**.
 Arcs can connect **places with transitions** or **transitions with places**.
+
 <p align="center">
     <img src="_media/plases_transitions_arcs/1.gif" height="220">
 </p>
@@ -39,28 +41,38 @@ This is due to the fact that Petri Nets are [bipartite graphs](https://en.wikipe
 You can connect multiple places with one transition.
 Same way you can connect multiple places with one transition.
 
-<img src="_media/plases_transitions_arcs/3.gif" height="220">
-<img src="_media/plases_transitions_arcs/4.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/3.gif" height="220">
+    <img src="_media/plases_transitions_arcs/4.gif" height="220">
+<p align="center">
 
 In classical Petri nets, firing a transition is one atomic event.
 During this event, a **transition consumes tokens from connected input places and produce tokens to output places**.
 The number of consumed and produced tokens is according to the firing rule in original Petri nets. For more info please consider reading <a href="https://netgrif.com/petriflow-rapid-language-for-modelling-petri-nets-with-roles-and-data-fields/">our research paper on this topic</a>.
 
-<img src="_media/plases_transitions_arcs/5.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/5.gif" height="220">
+</p>
 
 Transitions in Petri nets are executable only in the case that all basic firing conditions are fulfilled.
 As we can see places **p26** and **p27** both contain a single token. That’s enough to make transition executable.
 
-<img src="_media/plases_transitions_arcs/6.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/6.gif" height="220">
+</p>
 
 In this case we can see, that transition is **not executable** because place **p1 is missing a token**.
 Transition will **not** be **executable** until both places **p1** and **p2** **contain at least one token**.
 
-<img src="_media/plases_transitions_arcs/7.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/7.gif" height="220">
+<p align="center">
 
 The basic characteristic of arcs is their **multiplicity** (cardinality). The **default multiplicity** of **every arc is one**. That can be changed to any discrete number.
 
-<img src="_media/plases_transitions_arcs/8.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/8.gif" height="220">
+</p>
 
 _Firing rules with multiplicity_
 
@@ -70,8 +82,10 @@ _Firing rules with multiplicity_
 
 **Transition creates** as many **tokens** in **output places** as the **multiplicity of** the **corresponding output arc**.
 
-<img src="_media/plases_transitions_arcs/9.gif" height="220">
-<img src="_media/plases_transitions_arcs/10.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/9.gif" height="220">
+    <img src="_media/plases_transitions_arcs/10.gif" height="220">
+</p>
 
 Arcs can be used between **place and transition** in **both directions** in the **same pair**.
 
@@ -79,12 +93,19 @@ During the **firing event** token from the place is taken by **input arc**, but 
 
 All other basic rules are applied even in this case, e.g. multiplicity of arc.
 
-<img src="_media/plases_transitions_arcs/11.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/11.gif" height="220">
+</p>
 
-<img src="_media/plases_transitions_arcs/12.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/12.gif" height="220">
+</p>
 
 ## Example
-<img src="_media/plases_transitions_arcs/13.gif">
+
+<p align="center">
+    <img src="_media/plases_transitions_arcs/13.gif">
+<p align="center">
 
 An instance of this process will allow you to: 
 
@@ -96,7 +117,10 @@ An instance of this process will allow you to:
 </ol>
 
 ## Used tools
-<img src="_media/plases_transitions_arcs/14.gif">
+
+<p align="center">
+    <img src="_media/plases_transitions_arcs/14.gif">
+<p align="center">
 
 **Place** - Functionality that allows placing Place into the canvas.
 
@@ -117,4 +141,3 @@ An instance of this process will allow you to:
 **Align elements** - Align Places and Transitions into the grid in the canvas.
 
 **Move** - Changes the current location of/move Places and Transitions in the canvas.
-

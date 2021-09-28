@@ -18,34 +18,55 @@ You will build a basic data form and most common data variables - text, number a
 
 Creation of new data variables is made in Data edit. In Data edit view new data variables can be created and existing data variebles can be managed or deleted.
 
-<img src="_media/data/8.png">
+<p align="center">
+    <img src="_media/data/8.png">
+</p>
 
-Once data variable is created (by a plus sign - "Add data variable") you can:
+Once data variable is created (by a plus sign - "Add data variable") you can set its:
 <ol>
-    <li>Set its ID. By default, the ID is generically set.</li>
-    <li>Set its Title. By default, the ID is generically set.</li>
-    <li></li>
-    <li></li>
+    <li>ID. By default, the ID is generated, but it is possible to change it.</li>
+    <li>Title.</li>
+    <li>Type. </li>
+    <li>Is Immediate? </li>
+    <li>Set Description</li>
+    <li>Set Placeholder</li>
+    <li>Set Init Value</li>
+    <li>Set Validations</li>
 </ol>
 
-<img src="_media/data/1.gif">
+<p align="center">
+    <img src="_media/data/1.gif">
+</p>
 
 Detail of data edit view:
 <img src="_media/data/4.png">
 
 ### Drag'n'Drop of existing elements into the data form grid (Form edit view)
-<img src="_media/data/2.gif">
+
+<p align="center">
+    <img src="_media/data/2.gif">
+</p>
 
 Detail:
-<img src="_media/data/5.png">
+
+<p align="center">
+    <img src="_media/data/5.png">
+</p>
 
 ### Creation of new variable (Form edit view)
 
-<img src="_media/data/3.gif">
+<p align="center">
+    <img src="_media/data/3.gif">
+</p>
 
-Detail of the form part:
-<img src="_media/data/6.png">
+Detail of the data form:
 
-Detail of the data edit view part:
-<img src="_media/data/7.png">
+<p align="center">
+    <img src="_media/data/6.png">
+</p>
 
+Detail of the data edit view:
+
+<p align="center">
+    <img src="_media/data/7.png">
+</p>
