@@ -1,4 +1,4 @@
-# Places, transitions & arcs
+# Places, transitions, and arcs
 
 ## What you will build
 
@@ -6,33 +6,35 @@ You will build a simple Petriflow model composed of only three basic components:
 
 ## What you will need
 
-<ul>
-    <li>10 - 15 minutes</li>
-    <li>Netgrif SDK already installed</li>
-    <li>Access to the internet for builder.netgrif.com site</li>
-</ul>
+* 10 - 15 minutes
+* Netgrif SDK already installed
+* Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
+
 ### Building blocks of Petri nets
 
 Petri nets are composed of two main components.
 **Transitions (squares)** and **places (circles)**.
 A place can contain **tokens (resources of places, a discrete number of marks).**
-
-<img src="_media/plases_transitions_arcs/t1.png" height="150">
-<img src="_media/plases_transitions_arcs/p1.png" height="150">
-
+<p align="center">
+    <img src="_media/plases_transitions_arcs/t1.png" height="150">
+    <img src="_media/plases_transitions_arcs/p1.png" height="150">
+</p>
 ### Basic rules
 
 Transitions and places are connected with **arc (directed line)**.
 Arcs can connect **places with transitions** or **transitions with places**.
-
-<img src="_media/plases_transitions_arcs/1.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/1.gif" height="220">
+</p>
 
 It is **impossible** to **connect the transition with transition** or **place with the place**.
-This is due to the fact that Petri Nets are <a href="https://en.wikipedia.org/wiki/Bipartite_graph">bipartite graphs</a>.
+This is due to the fact that Petri Nets are [bipartite graphs](https://en.wikipedia.org/wiki/Bipartite_graph).
 
-<img src="_media/plases_transitions_arcs/2.gif" height="220">
+<p align="center">
+    <img src="_media/plases_transitions_arcs/2.gif" height="220">
+</p>
 
 You can connect multiple places with one transition.
 Same way you can connect multiple places with one transition.
