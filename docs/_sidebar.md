@@ -2,10 +2,10 @@
 * [Get Started](get_started.md)
 * [Specification](specification.md)
 * [Action API](actions.md)
-  Tutorials
+* [Examples](examples.md)
+* Tutorials
 * [Places, Transitions & Arcs](tutorials/plases_transitions_arcs.md)
-* [Data](tutorials/data.md)
-* [Roles](tutorials/roles.md)
+* [Data - basic](tutorials/data-basic.md)
+* [Roles - basic](tutorials/roles-basic.md)
 <!-- * [Extensions](extensions.md)
 * [Cookbook](cookbook.md) -->
-* [Examples](examples.md)
