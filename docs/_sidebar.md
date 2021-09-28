@@ -5,3 +5,6 @@
 * [Extensions](extensions.md)
 * [Cookbook](cookbook.md)
 * [Examples](examples.md)
+  Tutorials
+* [Places, Transitions & Arcs](tutorials/plases_transitions_arcs.md)
+* [Data](tutorials/data.md)
