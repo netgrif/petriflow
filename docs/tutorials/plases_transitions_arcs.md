@@ -1,4 +1,4 @@
-# Places, transitions, and arcs
+# Places, Transitions & Arcs
 
 ## What you will build
 
