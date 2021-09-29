@@ -22,6 +22,7 @@ A place can contain **tokens (resources of places, a discrete number of marks).*
     <img src="_media/plases_transitions_arcs/t1.png" height="150">
     <img src="_media/plases_transitions_arcs/p1.png" height="150">
 </p>
+
 ### Basic rules
 
 Transitions and places are connected with **arc (directed line)**.
