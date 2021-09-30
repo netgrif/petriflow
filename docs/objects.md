@@ -278,7 +278,7 @@ Arc is a connection between place and transition or transition and place. In Pet
 Some arc type (regular, inhibitor, read) can have assigned a weight value. Weight of an arc is an integer number.
 In Petriflow weight can also be set as a reference to a data field and a place of the process.
 
-* **Data field ** - The weight of an arc is defined by a reference to a data field. Value of the data
+* **Data** **field** - The weight of an arc is defined by a reference to a data field. Value of the data
  field is the weight of the arc.
 * **Place** - The weight of an arc is defined by the number of tokens in references place. If the referenced place
  is the source of the arcs it behaves as a reset arc.
