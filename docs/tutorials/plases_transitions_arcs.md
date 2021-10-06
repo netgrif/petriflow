@@ -112,9 +112,9 @@ An instance of this process will allow you to:
 
 <ol>
 <li>Initialize application by first transition (task)</li>
-<li>Decide if you want to use upper or lower branch or by both (each branch can have differnet funcionality)</li>
-<li>Join both branches and finalize main process</li>
-<li>Wait until at least five transitions were fired in main process and initialize new branch</li>
+<li>Decide if you want to use an upper or lower branch or by both (each branch can have different functionality)</li>
+<li>Join both branches and finalize the main process</li>
+<li>Wait until at least five transitions were fired in the main process and initialize new branch</li>
 </ol>
 
 ## Used tools

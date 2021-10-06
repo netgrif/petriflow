@@ -22,17 +22,17 @@ The creation of new data variables is done in the Data edit view and in the Data
     <img src="_media/data-basic/8.png">
 </p>
 
-Once data variable is created, (by a plus sign - "Add data variable") you can set its attributes:
+Once the data variable is created, (by a plus sign - "Add data variable") you can set its attributes:
 
 <ol>
-    <li> <b>ID.</b> Default, the ID is generated, but it is possible to change it by button "Refactor field ID".</li>
+    <li> <b>ID.</b> Default, the ID is generated, but it is possible to change it by the button "Refactor field ID".</li>
     <li> <b>Title.</b></li>
     <li> <b>Type.</b> The default type is Text. This can be easily changed to e.g. Number or Enumeration by clicking on the drop-down list.</li>
-    <li> <b>Is Immediate?</b> By default its value is false. If changed to true, data variable could be used in Application engine for searching.</li>
+    <li> <b>Is Immediate?</b> By default its value is false. If changed to true, the data variable could be used in the Application Engine for searching.</li>
     <li> <b>Set Description.</b></li>
     <li> <b>Set Placeholder.</b> If the data variable has no value, the placeholder will be shown instead of it.</li>
-    <li> <b>Set Init Value.</b> Is an initial value for every usage of data variable.</li>
-    <li> <b>Set Validations.</b> One validation can be added by clicking plus sign. Multiple validation can be applied. Validates whether the value of an data variable matches the pattern specified by a regular expression.</li>
+    <li> <b>Set Init Value.</b> Is an initial value for every usage of the data variable.</li>
+    <li> <b>Set Validations.</b> One validation can be added by clicking plus sign. Multiple validations can be applied. Validates whether the value of a data variable matches the pattern specified by a regular expression.</li>
 </ol>
 
 _Example of creation of data in data edit view:_
