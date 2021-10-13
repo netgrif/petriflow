@@ -15,3 +15,30 @@ Daco
 
 ## Tutorial
 
+### Tutorial preparation
+
+#### Create process model
+
+<p align="center">
+    <video controls style="height: 400px;">
+      <source src="_media/actions-basic/1.mp4" type="video/mp4">
+    </video>
+</p>
+
+#### Create data variables and data fields
+
+<p align="center">
+    <video controls style="height: 400px;">
+      <source src="_media/actions-basic/2.mp4" type="video/mp4">
+    </video>
+</p>
+
+#### Create and assign roles to tasks
+
+<p align="center">
+    <video controls style="height: 400px;">
+      <source src="_media/actions-basic/3.mp4" type="video/mp4">
+    </video>
+</p>
+
+### Actions tutorial

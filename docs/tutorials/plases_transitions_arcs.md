@@ -10,9 +10,7 @@ You will build a simple Petriflow model composed of only three basic components:
 * Netgrif SDK already installed
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
-## Tutorial
-
-### Building blocks of Petri nets
+## Building blocks of Petri nets
 
 Petri nets are composed of two main components.
 **Transitions (squares)** and **places (circles)**.
@@ -23,7 +21,7 @@ A place can contain **tokens (resources of places, a discrete number of marks).*
     <img src="_media/plases_transitions_arcs/p1.png" height="150">
 </p>
 
-### Basic rules
+## Basic rules
 
 Transitions and places are connected with **arc (directed line)**.
 Arcs can connect **places with transitions** or **transitions with places**.
@@ -102,11 +100,13 @@ All other basic rules are applied even in this case, e.g. multiplicity of arc.
     <img src="_media/plases_transitions_arcs/12.gif" height="220">
 </p>
 
-## Example
+## Tutorial
 
 <p align="center">
-    <img src="_media/plases_transitions_arcs/13.gif">
-<p align="center">
+    <video controls style="height: 400px;">
+      <source src="_media/plases_transitions_arcs/13.mp4" type="video/mp4">
+    </video>
+</p>
 
 An instance of this process will allow you to: 
 
@@ -117,7 +117,7 @@ An instance of this process will allow you to:
 <li>Wait until at least five transitions were fired in the main process and initialize new branch</li>
 </ol>
 
-## Used tools
+### Used tools
 
 <p align="center">
     <img src="_media/plases_transitions_arcs/14.gif">
@@ -142,3 +142,375 @@ An instance of this process will allow you to:
 **Align elements** - Align Places and Transitions into the grid in the canvas.
 
 **Move** - Changes the current location of/move Places and Transitions in the canvas.
+
+### Process application created in the tutorial (an XML file)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://netgrif.github.io/petriflow/petriflow.schema.xsd">
+	<id>pta_process</id>
+	<initials>PTA</initials>
+	<title>New PTA model</title>
+	<defaultRole>true</defaultRole>
+	<transitionRole>false</transitionRole>
+	<!-- TRANSACTIONS -->
+	<!-- ROLES -->
+	<!-- PROCESS ROLE REFS -->
+	<!-- PROCESS USER REFS -->
+	<!-- DATA -->
+	<!-- I18NS -->
+	<!-- TRANSITIONS -->
+	<transition>
+		<id>t11</id>
+		<x>940</x>
+		<y>620</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t8</id>
+		<x>1060</x>
+		<y>300</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t7</id>
+		<x>820</x>
+		<y>300</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t5</id>
+		<x>1300</x>
+		<y>220</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t4</id>
+		<x>1060</x>
+		<y>140</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t3</id>
+		<x>820</x>
+		<y>140</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t2</id>
+		<x>500</x>
+		<y>220</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t1</id>
+		<x>220</x>
+		<y>220</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<transition>
+		<id>t10</id>
+		<x>740</x>
+		<y>620</y>
+		<layout>
+			<offset>0</offset>
+		</layout>
+		<label></label>
+	</transition>
+	<!-- PLACES -->
+	<place>
+		<id>p12</id>
+		<x>1020</x>
+		<y>620</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p11</id>
+		<x>860</x>
+		<y>620</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p8</id>
+		<x>980</x>
+		<y>300</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p7</id>
+		<x>660</x>
+		<y>300</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p6</id>
+		<x>1420</x>
+		<y>220</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p5</id>
+		<x>1180</x>
+		<y>220</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p4</id>
+		<x>980</x>
+		<y>140</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p3</id>
+		<x>660</x>
+		<y>140</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p2</id>
+		<x>380</x>
+		<y>220</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p1</id>
+		<x>100</x>
+		<y>220</y>
+		<label></label>
+		<tokens>1</tokens>
+		<static>false</static>
+	</place>
+	<place>
+		<id>p10</id>
+		<x>740</x>
+		<y>500</y>
+		<label></label>
+		<tokens>0</tokens>
+		<static>false</static>
+	</place>
+	<!-- ARCS -->
+	<arc>
+		<id>a1</id>
+		<type>regular</type>
+		<sourceId>p1</sourceId>
+		<destinationId>t1</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a2</id>
+		<type>regular</type>
+		<sourceId>t1</sourceId>
+		<destinationId>p2</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a3</id>
+		<type>regular</type>
+		<sourceId>p2</sourceId>
+		<destinationId>t2</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a4</id>
+		<type>regular</type>
+		<sourceId>t2</sourceId>
+		<destinationId>p3</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a5</id>
+		<type>regular</type>
+		<sourceId>p3</sourceId>
+		<destinationId>t3</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a6</id>
+		<type>regular</type>
+		<sourceId>t3</sourceId>
+		<destinationId>p4</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a7</id>
+		<type>regular</type>
+		<sourceId>p4</sourceId>
+		<destinationId>t4</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a8</id>
+		<type>regular</type>
+		<sourceId>t4</sourceId>
+		<destinationId>p5</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a9</id>
+		<type>regular</type>
+		<sourceId>p5</sourceId>
+		<destinationId>t5</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a10</id>
+		<type>regular</type>
+		<sourceId>t5</sourceId>
+		<destinationId>p6</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a12</id>
+		<type>regular</type>
+		<sourceId>t2</sourceId>
+		<destinationId>p7</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a13</id>
+		<type>regular</type>
+		<sourceId>p7</sourceId>
+		<destinationId>t7</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a14</id>
+		<type>regular</type>
+		<sourceId>t7</sourceId>
+		<destinationId>p8</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a15</id>
+		<type>regular</type>
+		<sourceId>p8</sourceId>
+		<destinationId>t8</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a16</id>
+		<type>regular</type>
+		<sourceId>t8</sourceId>
+		<destinationId>p5</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a18</id>
+		<type>regular</type>
+		<sourceId>t1</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a19</id>
+		<type>regular</type>
+		<sourceId>t2</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a20</id>
+		<type>regular</type>
+		<sourceId>t3</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a21</id>
+		<type>regular</type>
+		<sourceId>t7</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a22</id>
+		<type>regular</type>
+		<sourceId>t4</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a23</id>
+		<type>regular</type>
+		<sourceId>t8</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a24</id>
+		<type>regular</type>
+		<sourceId>t5</sourceId>
+		<destinationId>p10</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a25</id>
+		<type>regular</type>
+		<sourceId>p10</sourceId>
+		<destinationId>t10</destinationId>
+		<multiplicity>5</multiplicity>
+	</arc>
+	<arc>
+		<id>a26</id>
+		<type>regular</type>
+		<sourceId>t10</sourceId>
+		<destinationId>p11</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a27</id>
+		<type>regular</type>
+		<sourceId>p11</sourceId>
+		<destinationId>t11</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+	<arc>
+		<id>a28</id>
+		<type>regular</type>
+		<sourceId>t11</sourceId>
+		<destinationId>p12</destinationId>
+		<multiplicity>1</multiplicity>
+	</arc>
+</document>
+```

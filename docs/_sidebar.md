@@ -6,7 +6,8 @@
 * Tutorials
 * [Hello World](tutorials/helloWorld.md)
 * [Places, Transitions & Arcs](tutorials/plases_transitions_arcs.md)
-* [Data - basic](tutorials/data-basic.md)
 * [Roles - basic](tutorials/roles-basic.md)
+* [Data - basic](tutorials/data-basic.md)
+* [Actions - basic](tutorials/actions-basic.md)
 <!-- * [Extensions](extensions.md)
 * [Cookbook](cookbook.md) -->

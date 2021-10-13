@@ -126,7 +126,7 @@ _Example of changing roles of one user in one process (changes are visible immed
     </video>
 </p>
 
-### Example process
+### Process application created in the tutorial (an XML file)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
