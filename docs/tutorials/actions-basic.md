@@ -42,3 +42,9 @@ Daco
 </p>
 
 ### Actions tutorial
+
+<p align="center">
+    <video controls style="height: 400px;">
+      <source src="_media/actions-basic/4.mp4" type="video/mp4">
+    </video>
+</p>
