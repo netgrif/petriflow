@@ -1,7 +1,5 @@
 ## cancelTask
 
-> cancelTask `transitionId`, `user` => `Task`
->
 > cancelTask `transitionId`, `case`, `user` => `Task`
 >
 > cancelTask `task`, `user` => `Task`

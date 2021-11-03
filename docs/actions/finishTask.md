@@ -1,7 +1,5 @@
 ## finishTask
 
-> finishTask `transitionId`, `user` => `Task`
->
 > finishTask `transitionId`, `case`, `user` => `Task`
 >
 > finishTask `task`, `user` => `Task`
