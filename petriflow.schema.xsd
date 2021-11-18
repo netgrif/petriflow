@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xs3p.xsl"?>
-<xs:schema elementFormDefault="qualified"
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1.1.0">
   <!-- ===== DOCUMENT ELEMENTS ===== -->
@@ -170,7 +170,12 @@
       <xs:element type="caseEvent" name="event" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="document" type="document">
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="documentType"/>
+      </xs:complexContent>
+    </xs:complexType>
     <xs:unique name="transitionUniqueId">
       <xs:selector xpath="./transition"/>
       <xs:field xpath="id"/>
@@ -209,12 +214,12 @@
       <xs:field xpath="destinationId"/>
     </xs:keyref>
   </xs:element>
-  <xs:complexType name="document">
+  <xs:complexType name="documentType">
     <xs:sequence>
-      <xs:element ref="id"/>
+      <xs:element ref="id" minOccurs="1"/>
       <xs:element ref="version" minOccurs="0"/>
-      <xs:element ref="initials"/>
-      <xs:element name="title" type="i18nStringType"/>
+      <xs:element ref="initials" minOccurs="1"/>
+      <xs:element name="title" minOccurs="1" type="i18nStringType"/>
       <xs:element ref="icon" minOccurs="0"/>
       <xs:element ref="defaultRole" minOccurs="0"/>
       <xs:element ref="transitionRole" minOccurs="0"/>
