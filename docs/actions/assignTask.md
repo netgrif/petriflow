@@ -1,7 +1,5 @@
 ## assignTask
 
-> assignTask `transitionId`, `user` => `Task`
-> 
 > assignTask `transitionId`, `case`, `user` => `Task`
 > 
 > assignTask `task`, `user` => `Task`
@@ -20,14 +18,6 @@ Assign operation can be performed on a list of tasks in one call.
 | user         | `User`   | Logged user or system   | A user to who will be the task assigned and executed.   |
 
 #### Example
-
-```groovy
-selectedUser: f.select_controler;
-if (selectedUser.value) {
-    def user = userService.findById(selectedUser.value.id, false)
-    assignTask("control", user);
-}
-```
 
 ```groovy
 selectedUser: f.select_controler;
