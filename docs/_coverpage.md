@@ -5,8 +5,8 @@
 > Next-generation end-to-end low code language.
 
 - Easy to learn
-- As powerful as you need
+- Powerful
 - Modern way to build an app
 
 [GitHub](https://github.com/netgrif/petriflow)
-[Get Started](#Petriflow)
+[Learn more](#Petriflow)

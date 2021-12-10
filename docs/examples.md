@@ -1,7 +1,5 @@
 # Examples
 
-TODO examples of common modeling structured and techniques, maybe call the section differently
-
 ## Order approval
 
 ```xml
