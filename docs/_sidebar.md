@@ -9,5 +9,6 @@
 * [Roles - basic](tutorials/roles-basic.md)
 * [Data - basic](tutorials/data-basic.md)
 * [Actions - basic](tutorials/actions-basic.md)
+* [Events - basic](tutorials/events-basic.md)
 <!-- * [Extensions](extensions.md)
 * [Cookbook](cookbook.md) -->

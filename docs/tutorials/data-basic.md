@@ -6,12 +6,9 @@ You will build a basic data form and most common data variables - text and numbe
 
 ## What you will need
 
-<ul>
-    <li>10 - 15 minutes</li>
-    <li>Netgrif SDK already installed</li>
-    <li>Access to the internet for builder.netgrif.com site</li>
-    <li>Created free account at demo.netgrif.com to test the process</li>
-</ul>
+* 10 - 15 minutes
+* Netgrif SDK already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
 ### Creation of new variable (Data edit view)
