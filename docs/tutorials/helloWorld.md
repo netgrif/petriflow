@@ -15,7 +15,7 @@ You will build a basic web-based process driven application that will greet you 
 ## What you will need
 
 * 10 - 15 minutes
-* Netgrif SDK already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
