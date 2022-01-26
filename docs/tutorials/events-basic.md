@@ -70,6 +70,20 @@ In the model above you can see pre and post phases inside the Finish task event:
 Data events - GET & SET - can be accessed in an assigned task by the user or in functions by reading or writing values. **Get event** is called when the data field with its value is loaded within a task.
 **Get event** is called when the data field's value is set or changed.
 
+_Example of GET and SET actions:_
+
+<p align="center">
+    <img src="_media/events-basic/4.png">
+</p>
+
+_Execution of process instance with GET and SET actions in NAE:_
+
+<p align="center">
+    <video controls style="max-width: 750px;">
+      <source src="_media/events-basic/3.mp4" type="video/mp4">
+    </video>
+</p>
+
 #### Data event vs. Data reference event
 Actions assigned to data events can be both locally and globally within a process instance.
 Locally you can assign an action to a data reference - **DataRef** - that is a reference of data within one task.
