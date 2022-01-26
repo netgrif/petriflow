@@ -82,6 +82,14 @@
 				</layout>
 			</dataRef>
 		</dataGroup>
+		<event type="finish">
+			<id>t7_finish</id>
+			<actions phase="pre">
+				<action>text_2: f.text_2;
+					change text_2 value { "Branch answered."; }
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<transition>
 		<id>t6</id>
@@ -147,6 +155,20 @@
 				</layout>
 			</dataRef>
 		</dataGroup>
+		<event type="finish">
+			<id>t4_finish</id>
+			<actions phase="pre">
+				<action>text_2: f.text_2;
+					change text_2 value { "Conclusion made."; }
+				</action>
+			</actions>
+			<actions phase="post">
+				<action>t9: t.t9,
+					text_1: f.text_1;
+					make text_1, visible on t9 when { true }
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<transition>
 		<id>t3</id>
@@ -182,6 +204,14 @@
 				</layout>
 			</dataRef>
 		</dataGroup>
+		<event type="finish">
+			<id>t3_finish</id>
+			<actions phase="pre">
+				<action>text_2: f.text_2;
+					change text_2 value { "Branch answered."; }
+				</action>
+			</actions>
+		</event>
 	</transition>
 	<transition>
 		<id>t2</id>
@@ -234,21 +264,26 @@
 		</dataGroup>
 		<event type="finish">
 			<id>t1_finish</id>
+			<actions phase="pre">
+				<action>text_2: f.text_2;
+					change text_2 value { "Decision made."; }
+				</action>
+			</actions>
 			<actions phase="post">
 				<action>enumeration_0: f.enumeration_0;
 
-if (enumeration_0.value == "To First") {
-    async.run{
-        assignTask("t2")
-        finishTask("t2")
-    }
-}else {
-    async.run{
-        assignTask("t6")
-        finishTask("t6")
-    }
-} 
-</action>
+					if (enumeration_0.value == "To First") {
+					async.run{
+					assignTask("t2")
+					finishTask("t2")
+					}
+					}else {
+					async.run{
+					assignTask("t6")
+					finishTask("t6")
+					}
+					}
+				</action>
 			</actions>
 		</event>
 	</transition>

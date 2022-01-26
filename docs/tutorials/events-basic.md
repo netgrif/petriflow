@@ -44,7 +44,7 @@ _Example of actual task events inside NAE:_
 
 _Process used in examples above:_
 
-<a href="_media/events-basic/task.xml" download="request">Download the process</a>
+<a href="_media/events-basic/task.xml" download="request" style="color:blue;">Download the process</a>
 
 #### Task event's phases
 
@@ -59,13 +59,13 @@ _Example of pre and post phases inside Finish task event:_
 
 _Process used in example above:_
 
-<a href="_media/events-basic/request.xml" download="request">Download the process</a>
+<a href="_media/events-basic/request.xml" download="request" style="color:blue;">Download the process</a>
 
 In the model above you can see pre and post phases inside the Finish task event:
 * Pre phase action is evaluated at the time when a user is clicking the finish button. If the function/s inside the pre-phase is problematic, the token/s would return back to the task.
 * Post phase action is evaluated at the time when token/s are produced in output place/s event if the function/s inside the post-phase is problematic.
     * E.g. this allows execution of another tasks as in the example above because token is already in place before them
-    
+
 ### Data events
 Data events - GET & SET - can be accessed in an assigned task by the user or in functions by reading or writing values. **Get event** is called when the data field with its value is loaded within a task.
 **Get event** is called when the data field's value is set or changed.

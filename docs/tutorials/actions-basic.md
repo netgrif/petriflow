@@ -140,6 +140,10 @@ _Example of change behaviour action:_
 
 ### Testing of the application
 
+_Process used in examples above:_
+
+<a href="_media/actions-basic/actions.xml" download="actions" style="color:blue;">Download the process</a>
+
 In the video below, you can see all the mentioned actions from the created application quickly compiled by Netgrif Application Engine.
 Roles have to be changed during the demonstration in order to simulate multiple users.  
 
