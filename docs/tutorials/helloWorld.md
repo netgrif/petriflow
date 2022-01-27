@@ -1,4 +1,4 @@
-# Hello world process
+# "Hello world" application
 
 ## What you will build
 
@@ -28,7 +28,7 @@ Head to https://builder.netgrif.com. At this site, you are able to create Petri 
     <img src="_media/helloWorld/1.png">
 </p>
 
-Firstly add one place. This will be the starting point of the process. Now we need to add new “screen” on which we can interact with the process as a user. This is done via transition.
+First, add one place. This will be the starting point of the process. Now we need to add new “screen” on which we can interact with the process as a user. This is done via transition.
 
 <p align="center">
     <img src="_media/helloWorld/2.png">
@@ -87,17 +87,17 @@ In set field behaviour we can also alter the behaviour of the field on this give
     <img src="_media/helloWorld/9.png">
 </p>
 
-Repeat the same procedure on the transition Hello world, but this time add only one field and call it greetings. Set it’s behaviour to visible, as we don’t want user to change content of the field (effectively making it read-only)
+Repeat the same steps on the transition `Hello world`, but this time add only one field and call it greetings. Set its behaviour to visible, as we do not want user to change content of the field (by effectively making it read-only)
 
 <p align="center">
     <img src="_media/helloWorld/10.png">
 </p>
 
-At this point we are done with adding data. Now let’s construct the greetings message.
+At this point we are done with adding data. Now we construct the greetings message.
 
 ### Adding actions
 
-We now want to make an action, where when user finishes the task Type your name, the system will construct greetings message into the datafield greetings. To learn more about actions, click here.
+We now want to make an action, where when user finishes the task `Type your name`, the system will construct greetings message into the datafield greetings. To learn more about actions, click here.
 
 From the default view there the Petri Net was modeled, right click on the transition Type your name. You will be taken into Actions view.
 
@@ -111,7 +111,7 @@ We want to react on event when the task Type your name is finished, so let’s c
     <img src="_media/helloWorld/12.png">
 </p>
 
-In the window, we can start type the code that is supposed to be executed, when the task is finished. The code uses the Petriflow language based on Groovy. Let’s firstly declare all the datafields we want to interact with in this action. For us it’s name, surname and greetings.
+In the window, we can start type the code that is supposed to be executed, when the task is finished. The code uses the Petriflow language based on Groovy. Let’s firstly declare all the datafields we want to interact with in this action. For us it is name, surname and greetings.
 
 <p align="center">
     <img src="_media/helloWorld/13.png">
@@ -149,13 +149,13 @@ The download of the process will start immediately. The download	file is in XML 
 
 ### Uploading the process XML file
 
-Head onto https://demo.netgrif.com and sign into your account. On the left side select process Tab. In case you don’t have an account yet, you need to create one for free.
+Head onto https://demo.netgrif.com and sign into your account. On the left side select process Tab. In case you do not have an account yet, you need to create one for free.
 
 <p align="center">
     <img src="_media/helloWorld/16.png">
 </p>
 
-In bottom right corner click on the upload button and upload the downloaded XML file. It will appear in the Tab immediately.
+In the bottom right corner click on the `upload` button and upload the downloaded XML file. It will appear in the Tab immediately.
 
 <p align="center">
     <img src="_media/helloWorld/17.png">
@@ -189,4 +189,5 @@ When you are finished, click on Finish to signalize the engine to finish the tas
     <img src="_media/helloWorld/21.png">
 </p>
 
-At this point, the application is completed and you successfully finished the hello world tutorial.
+Now the application is completed and you successfully finished the hello world tutorial!
+Congratulations!

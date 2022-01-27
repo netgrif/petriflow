@@ -2,7 +2,7 @@
 
 ## What you will build
 
-You will build an application with three types of event-based actions. Two types of actions are dedicated to changing the properties of data fields - value and behaviour. And one type of action allows automatic decision making. The process-based application features multiple departments, a status tracker, and hidden/visible data fields.     
+You will build an application with three types of event-based actions. Two types of actions are dedicated to changing the properties of data fields - value and behaviour. Third type of action allows automatic decision making. This process-based application example introduces multiple departments, a status tracker, and hidden/visible data fields.     
 
 ## What you will need
 
@@ -16,7 +16,7 @@ You will build an application with three types of event-based actions. Two types
 
 #### Modelling of the process
 
-Modell process model as in the video below.
+Model the process model as in the video below.
 
 _Example of modelling the process :_
 <p align="center">
@@ -51,7 +51,7 @@ _Example of crearting and assigning roles to tasks:_
 
 ### Actions 
 
-Petriflow's Actions are pieces of Groovy/Java code that define reactions to events invoked in process execution. Thanks to the robust Action API events can be chained and further enriched business logic of an application process. You can find out more about Actions <a href="#/specification?id=actions">here</a>.
+Petriflow Actions are pieces of Groovy/Java code that define reactions to events invoked in process execution. Thanks to the robust Action API events can be chained and further enriched business logic of an application process. You can find out more about Actions <a href="#/specification?id=actions">here</a>.
 
 #### First action - decision split
 
@@ -114,7 +114,7 @@ In order to make this action work create it in the event **Finish** phase **Pre*
     <img src="_media/actions-basic/2.png">
 </p>
 
-#### Third action - change behaviour of conclusion text field in status
+#### Third action - change behaviour of the conclusion text field in status
 
 Change behaviour action generally works as a systematic function that changes the data field's behaviour.
 In our case, this function changes the behaviour of the "Conclusion" text field from hidden to visible in the Status task.

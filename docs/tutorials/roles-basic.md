@@ -2,7 +2,7 @@
 
 ## What you will build
 
-You will build a process-driven application that contains few basic roles. You will find out how simple is to create roles, assign them to tasks in the Application Builder, assign them to users in the Application Engine and work with them once the process instance is created.
+You will build a process-driven application that contains few basic roles. You will find out how simple it is to create roles, assign them to tasks in the Application Builder, assign them to users in the Application Engine and work with them once the process instance is created.
 
 ## What you will need
 
@@ -51,9 +51,16 @@ In order to assign roles to tasks you have to:
     <li>Use the right mouse click while the Select tool is selected in Edit view and choose "Manage permissions".</li>
     <li>Dialogue called "Transition Permissions" will appear with multiple options. In this tutorial, we will go just with Perform column.</li>
     <li>For transitions  "Choose first", "Choose second" and "Task of the admin" click once in row admin, column Perform.</li>
-    <li>For transitions  "First" click once in row role_1, column Perform.</li>
-    <li>For transitions  "Second" click once in row role_1, column Perform.</li>
+    <li>For transition  "First" click once in row role_1, column Perform.</li>
+    <li>For transition  "Second" click once in row role_1, column Perform.</li>
 </ol>
+
+1. Use the right mouse click while the Select tool is selected in Edit view and choose `Manage permissions`.
+2. Dialogue called `Transition Permissions` will appear with multiple options. In this tutorial, we will go just with Perform column.
+3. For transitions  `Choose first`, `Choose second` and `Task of the admin` click once in row admin, column Perform.
+4. For transition  `First` click once in row `role_1`, column `Perform`.</li>
+5. For transition  `Second` click once in row `role_1`, column `Perform`.</li>
+
 
 _Detail of how to get to Manage Permissions:_
 
@@ -77,7 +84,7 @@ _Example of roles assignment to tasks:_
 
 ### Upload process into the Application Engine
 
-Before you will upload the process with all roles into the Application Engine, you have to download/save it.
+Before uploading the process with all the roles into the Application Engine, you have to download/save it.
 
 _Detail of how to export created process:_
 
@@ -107,10 +114,10 @@ _Example of process uploaded to Application Engine:_
 
 ### Play with the roles
 
-In order to play with the roles of your process in <a href="https://demo.netgrif.com/" target="_blank">the Demo of the Netgrif Application Engine</a> follow steps:
+In order to play with the roles of your process in <a href="https://demo.netgrif.com/" target="_blank">the Demo of the Netgrif Application Engine</a> follow these steps:
 <ol>
-    <li>Once you are logged in go to the section Role management in the left navigation menu.</li>
-    <li>In the section, Role management chooses a user (a user that is representing you in this case) from the left side of the screen to who you want to change roles.</li>
+    <li>Once you are logged in, go to the section "Role management" in the left navigation menu.</li>
+    <li>In the "Role management" section, select a user (a user that is representing you in this case) from the left side of the screen to who you want to change roles.</li>
     <li>In the section, Role management chooses a process (your uploaded process in this case) from the right side of the screen. Now choose roles of the process that you want to assign to the selected user (e.g. Admin).</li>
     <li>If you have assigned roles to the user, go to the section All cases. Open the process instance that you have created in previous steps and check if the user can see any task. If yes,assign and finish the tasks.</li>
     <li>Repeat the process above but try to use different roles or multiple roles at the same time. Check the video below - get to know how to get through the whole process created by you in the NAB.</li>
