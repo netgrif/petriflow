@@ -162,7 +162,7 @@ In order to make this action work create it in the event **Finish** phase **Post
 
 ### Process application created in the tutorial (an XML file)
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://netgrif.github.io/petriflow/petriflow.schema.xsd">
 	<id>actions</id>
