@@ -7,7 +7,7 @@ You will build a process-driven application that contains few basic roles. You w
 ## What you will need
 
 * 10 - 15 minutes
-* Netgrif SDK already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
@@ -16,7 +16,9 @@ You will build a process-driven application that contains few basic roles. You w
 
 In the following process, you will a create process with four states (places) and five tasks (transitions).
 
-[Example process](#example-process)
+_Process that will be used all in examples below:_
+
+<a href="_media/roles-basic/example.xml" download="example" style="color:blue;">Download the process</a>
 
 <ol>
     <li>Each task will be assigned to a different role. To create roles, you need to select the Role edit view in the main toolbar.</li>
@@ -83,6 +85,10 @@ _Example of roles assignment to tasks:_
 </p>
 
 ### Upload process into the Application Engine
+
+_Process used all in examples above:_
+
+<a href="_media/roles-basic/roles.xml" download="roles" style="color:blue;">Download the process</a>
 
 Before uploading the process with all the roles into the Application Engine, you have to download/save it.
 

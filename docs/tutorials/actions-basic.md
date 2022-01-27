@@ -7,7 +7,9 @@ You will build an application with three types of event-based actions. Two types
 ## What you will need
 
 * 10 - 15 minutes
-* Netgrif SDK already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site* 10 - 15 minutes
+* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
@@ -116,7 +118,7 @@ In order to make this action work create it in the event **Finish** phase **Pre*
 
 #### Third action - change behaviour of the conclusion text field in status
 
-Change behaviour action generally works as a systematic function that changes the data field's behaviour.
+Change behaviour action generally works as a systematic function that changes the behaviour of the data field.
 In our case, this function changes the behaviour of the "Conclusion" text field from hidden to visible in the Status task.
 So the "Conclusion" text field is visible only when the Conclusion task is finished.
 
@@ -136,7 +138,11 @@ _Example of change behaviour action:_
     </video>
 </p>
 
-### Testing of the application
+### Testing the application
+
+_Process used in examples above:_
+
+<a href="_media/actions-basic/actions.xml" download="actions" style="color:blue;">Download the process</a>
 
 In the video below, you can see all the mentioned actions from the created application quickly compiled by Netgrif Application Engine.
 Roles have to be changed during the demonstration in order to simulate multiple users.  
@@ -156,7 +162,7 @@ In order to make this action work create it in the event **Finish** phase **Post
 
 ### Process application created in the tutorial (an XML file)
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://netgrif.github.io/petriflow/petriflow.schema.xsd">
 	<id>actions</id>

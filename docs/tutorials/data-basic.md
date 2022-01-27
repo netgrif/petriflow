@@ -7,7 +7,7 @@ You will build a basic data form and most common data variables - text and numbe
 ## What you will need
 
 * 10 - 15 minutes
-* Netgrif SDK already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
@@ -51,7 +51,7 @@ When you have placed at least one transition (task) into the canvas, you are abl
     <img src="_media/data-basic/9.png">
 </p>
 
-Once Data from view is opened you are able to place into the grid any existing or new data variables.
+Once Data from view is open you are able to place any existing or new data variables into the grid.
 Placing data variables into the grid is simple - it is done by drag'n'drop. Then they can be resized and modified.
 Almost all data variable attributes can be changed in the right navigation panel instead of validations, type and property immediate.
 Validations and Is Immediate? can be set only in the Data edit view. The type of the data variable dragged into the form is defined by
@@ -108,6 +108,10 @@ _Detail of how to export created process:_
 In order to upload the process into Demo of the Netgrif Application Engine follow the same steps that were used in the Roles basic tutorial in section "Upload process into the Application Engine".
 
 ### Play with the instance of uploaded process
+
+_Process used all in examples above:_
+
+<a href="_media/data-basic/data.xml" download="data" style="color:blue;">Download the process</a>
 
 _Example of uploading new process into the NAE. Following the creation of a new process instance and playing with data inside the task:_
 
