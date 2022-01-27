@@ -43,7 +43,7 @@ _Example of creating data and data forms in the process:_
 
 Create roles and assign them to each task as in the video below.
 
-_Example of crearting and assigning roles to tasks:_
+_Example of creating and assigning roles to tasks:_
 
 <p align="center">
     <video controls style="height: 400px;">
@@ -53,11 +53,11 @@ _Example of crearting and assigning roles to tasks:_
 
 ### Actions 
 
-Petriflow Actions are pieces of Groovy/Java code that define reactions to events invoked in process execution. Thanks to the robust Action API events can be chained and further enriched business logic of an application process. You can find out more about Actions <a href="#/specification?id=actions">here</a>.
+Petriflow `Actions` are pieces of Groovy/Java code that define reactions to events invoked in process execution. Thanks to the robust Action API, events can be chained and further enrich business logic of an application process. You can find out more about Actions <a href="#/specification?id=actions">here</a>.
 
 #### First action - decision split
 
-Decision split action is simple Groovy If/Else Statement function, where condition is evaluated by value of enumeration field - Which branch?. If its value is equal to "To First" async function will execute task t2 - "To First". Else its value is not equal to "To First" async function will execute task t6 - "To Second". 
+Decision split action is simple Groovy If/Else Statement function, where condition is evaluated by value of enumeration field - Which branch?. If its value is equal to `To First`, async function will execute task `t2` - `To First`. Otherwise its value is not equal to `To First` so async function will execute task `t6` - `To Second`. 
 
 _Decision split action code snipet:_
 ```java
@@ -119,8 +119,8 @@ In order to make this action work create it in the event **Finish** phase **Pre*
 #### Third action - change behaviour of the conclusion text field in status
 
 Change behaviour action generally works as a systematic function that changes the behaviour of the data field.
-In our case, this function changes the behaviour of the "Conclusion" text field from hidden to visible in the Status task.
-So the "Conclusion" text field is visible only when the Conclusion task is finished.
+In our case, this function changes the behaviour of the `Conclusion` text field from hidden to visible in the Status task.
+So the `Conclusion` text field is visible only when the `Conclusion` task is finished.
 
 _Change behaviour action code snipet:_
 ```java

@@ -4,7 +4,7 @@
 
 You will learn about basic types of events and event's phases used during Netgrif applications development.
 You will build multiple tasks inside one process-based application in order to see the difference between event types.
-Mentioned event types are from two categories: task events - assign, finish, delegate and cancel - and data events - data and data refs. 
+Event types covered in this tutorial fall in two categories: task events: `assign`, `finish`, `delegate` and `cancel` - and data events: `data` and `data refs`. 
 
 ## What you will need
 
@@ -23,7 +23,7 @@ _Types of task and data events explained in this tutorial:_
 ### Task events
 
 Task events are connected with firing a transition, which we have mentioned before in **Places, Transitions & Arcs**. Once a transition is fired it consumes token/s in input place/s and produces token/s in output place/s.
-Three out of four task events are based on firing a transition - ASSIGN, CANCEL & FINISH. **Assign event** occurs when a user decides to assign a task to himself and transition consumes token/s from input place/s. **Cancel event** occurs when
+Three out of four task events are based on firing a transition - `Assign`, `Cancel` & `Finish`. **Assign event** occurs when a user decides to assign a task to himself and transition consumes token/s from input place/s. **Cancel event** occurs when
 user/system decides to not finish, but cancel a task and tokens are given back to input place/s. **Finish event** occurs when a user decides to finish the task and token/s are produced in output place/s.
 The only task event that is not connected with the firing of transition is the Delegate event. **Delegate event** occurs when one user decides to delegate a task to another user.
 
@@ -49,8 +49,8 @@ _Process used in examples above:_
 
 #### Task event's phases
 
-Each task event action type has to have a phase. And we have only two phases: Pre and Post. **Pre phase** is evaluated before the actual event occurs. If something went wrong with actions inside this event phase, the state of the workflow does not change. Token/s stays at its location before the event was fired.
-**Post phase** is evaluated after the actual event occurs. If something went wrong with actions inside this event phase, it won't affect the state of the workflow. Token/s will be consumed or produced anyway.
+Each task event action type has to have a phase. And we have only two phases: `Pre` and `Post`. **Pre phase** is evaluated before the actual event occurs. If something went wrong with actions inside this event phase, the state of the workflow does not change. Token(s) stays at its location before the event was fired.
+**Post phase** is evaluated after the actual event occurs. If something went wrong with actions inside this event phase, it won't affect the state of the workflow. Token(s) will be consumed or produced anyway.
 
 _Example of pre and post phases inside Finish task event:_
 
@@ -63,21 +63,21 @@ _Process used in example above:_
 <a href="_media/events-basic/request.xml" download="request" style="color:blue;">Download the process</a>
 
 In the model above you can see pre and post phases inside the Finish task event:
-* Pre phase action is evaluated at the time when a user is clicking the finish button. If the function/s inside the pre-phase is problematic, the token/s would return back to the task.
-* Post phase action is evaluated at the time when token/s are produced in output place/s event if the function/s inside the post-phase is problematic.
+* Pre phase action is evaluated at the time when a user is clicking the finish button. If the function(s) inside the pre-phase is problematic, the token(s) would return back to the task.
+* Post phase action is evaluated at the time when token(s) are produced in output place(s) event if the function(s) inside the post-phase is problematic.
     * E.g. this allows execution of another tasks as in the example above because token is already in place before them
 
 ### Data events
-Data events - GET & SET - can be accessed in an assigned task by the user or in functions by reading or writing values. **Get event** is called when the data field with its value is loaded within a task.
+Data events - `Get` & `Set` - can be accessed in an assigned task by the user or in functions by reading or writing values. **Get event** is called when the data field with its value is loaded within a task.
 **Get event** is called when the data field's value is set or changed.
 
-_Example of GET and SET actions:_
+_Example of Get and Set actions:_
 
 <p align="center">
     <img src="_media/events-basic/4.png">
 </p>
 
-_Execution of process instance with GET and SET actions in NAE:_
+_Execution of process instance with Get and Set actions in NAE:_
 
 <p align="center">
     <video controls style="max-width: 750px;">
@@ -86,18 +86,18 @@ _Execution of process instance with GET and SET actions in NAE:_
 </p>
 
 #### Data event vs. Data reference event
-Actions assigned to data events can be both locally and globally within a process instance.
+Actions assigned to data events can be both local and global within a process instance.
 Locally you can assign an action to a data reference - **DataRef** - that is a reference of data within one task.
 When you assign action into DataRef multiple business logic functions can be used while you are affecting the data that is referenced.
-Globally you can assign an action to data itself. When you assign action into data itself one set of business logic functions is used.
+Globally you can assign an action to data itself. When you assign action to data itself, one set of business logic functions is used.
 
-_Example of GET data action:_
+_Example of Get data action:_
 
 <p align="center">
     <img src="_media/events-basic/5.png">
 </p>
 
-_Example of GET data reference action:_
+_Example of Get data reference action:_
 
 <p align="center">
     <img src="_media/events-basic/6.png">
@@ -115,7 +115,7 @@ _Process used in all data events examples above:_
 
 <a href="_media/events-basic/setget.xml" download="setget" style="color:blue;">Download the process</a>
 
-### Process of request application created in the tutorial (an XML file)
+### Process of Request application created in the tutorial (an XML file)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
