@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://netgrif.github.io/petriflow/petriflow.schema.xsd">
+    <id>data</id>
+    <initials>DTA</initials>
+    <title>Data tutorial</title>
+    <defaultRole>true</defaultRole>
+    <transitionRole>false</transitionRole>
+    <!-- TRANSACTIONS -->
+    <!-- ROLES -->
+    <!-- PROCESS ROLE REFS -->
+    <!-- PROCESS USER REFS -->
+    <!-- DATA -->
+    <data type="text" immediate="true">
+        <id>my_variable1</id>
+        <title>My variable</title>
+        <placeholder>Place here your text.</placeholder>
+        <desc>This is text variable</desc>
+    </data>
+    <data type="text">
+        <id>my_second_variable</id>
+        <title>My second variable</title>
+        <desc>Put your another text here</desc>
+    </data>
+    <data type="number">
+        <id>my_number_field</id>
+        <title>My number inrange field</title>
+        <desc>Put your number in range 100,1000</desc>
+        <validations>
+            <validation>
+                <expression>inrange 100,1000</expression>
+                <message></message>
+            </validation>
+        </validations>
+    </data>
+    <!-- I18NS -->
+    <!-- TRANSITIONS -->
+    <transition>
+        <id>t1</id>
+        <x>380</x>
+        <y>220</y>
+        <layout>
+            <offset>0</offset>
+        </layout>
+        <label></label>
+        <dataGroup>
+            <id>DataGroup</id>
+            <layout>grid</layout>
+            <dataRef>
+                <id>my_second_variable</id>
+                <logic>
+                    <behavior>editable</behavior>
+                </logic>
+                <layout>
+                    <x>0</x>
+                    <y>1</y>
+                    <rows>1</rows>
+                    <cols>4</cols>
+                    <offset>0</offset>
+                    <template>material</template>
+                    <appearance>outline</appearance>
+                </layout>
+            </dataRef>
+            <dataRef>
+                <id>my_variable1</id>
+                <logic>
+                    <behavior>editable</behavior>
+                </logic>
+                <layout>
+                    <x>0</x>
+                    <y>0</y>
+                    <rows>1</rows>
+                    <cols>4</cols>
+                    <offset>0</offset>
+                    <template>material</template>
+                    <appearance>outline</appearance>
+                </layout>
+            </dataRef>
+            <dataRef>
+                <id>my_number_field</id>
+                <logic>
+                    <behavior>editable</behavior>
+                </logic>
+                <layout>
+                    <x>0</x>
+                    <y>2</y>
+                    <rows>1</rows>
+                    <cols>4</cols>
+                    <offset>0</offset>
+                    <template>material</template>
+                    <appearance>outline</appearance>
+                </layout>
+            </dataRef>
+        </dataGroup>
+    </transition>
+    <!-- PLACES -->
+    <!-- ARCS -->
+</document>
