@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xs3p.xsl"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+<xs:schema elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1.1.0">
   <!-- ===== DOCUMENT ELEMENTS ===== -->
@@ -86,19 +86,7 @@
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
       <xs:element type="i18nStringType" name="label"/>
-      <xs:element name="layout" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="nonNegativeInteger" name="cols" minOccurs="0"/>
-            <xs:element type="nonNegativeInteger" name="rows" minOccurs="0"/>
-            <xs:element type="nonNegativeInteger" name="offset" minOccurs="0"/>
-            <xs:element name="fieldAlignment" type="fieldAlignment" minOccurs="0"/>
-            <xs:element type="hideEmptyRows" name="hideEmptyRows" minOccurs="0"/>
-            <xs:element type="compactDirection" name="compactDirection" minOccurs="0"/>
-          </xs:sequence>
-          <xs:attribute name="type" type="layoutType"/>
-        </xs:complexType>
-      </xs:element>
+      <xs:element type="transitionLayout" name="layout" minOccurs="0"/>
       <xs:element type="xs:string" name="icon" minOccurs="0"/>
       <xs:element type="nonNegativeInteger" name="priority" minOccurs="0"/>
       <xs:element type="assignPolicy" name="assignPolicy" minOccurs="0"/>
@@ -116,6 +104,17 @@
       <xs:element type="dataGroup" name="dataGroup" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transitionLayout">
+    <xs:sequence>
+      <xs:element type="nonNegativeInteger" name="cols" minOccurs="0"/>
+      <xs:element type="nonNegativeInteger" name="rows" minOccurs="0"/>
+      <xs:element type="nonNegativeInteger" name="offset" minOccurs="0"/>
+      <xs:element name="fieldAlignment" type="fieldAlignment" minOccurs="0"/>
+      <xs:element type="hideEmptyRows" name="hideEmptyRows" minOccurs="0"/>
+      <xs:element type="compactDirection" name="compactDirection" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="type" type="layoutType"/>
   </xs:complexType>
   <xs:complexType name="place">
     <xs:sequence>
@@ -203,10 +202,10 @@
   </xs:element>
   <xs:complexType name="documentType">
     <xs:sequence>
-      <xs:element type="xs:string" name="id" minOccurs="1"/>
+      <xs:element type="xs:string" name="id"/>
       <xs:element type="xs:string" name="version" minOccurs="0"/>
-      <xs:element type="initials" name="initials" minOccurs="1"/>
-      <xs:element type="i18nStringType" name="title" minOccurs="1"/>
+      <xs:element type="initials" name="initials"/>
+      <xs:element type="i18nStringType" name="title"/>
       <xs:element type="xs:string" name="icon" minOccurs="0"/>
       <xs:element type="xs:boolean" name="defaultRole" minOccurs="0" default="true"/>
       <xs:element type="xs:boolean" name="anonymousRole" minOccurs="0" default="true"/>
@@ -260,6 +259,7 @@
       <xs:enumeration value="taskRef"/>
       <xs:enumeration value="caseRef"/>
       <xs:enumeration value="filter"/>
+      <xs:enumeration value="i18n"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="scope">
@@ -584,7 +584,7 @@
   </xs:complexType>
   <xs:complexType name="init">
     <xs:simpleContent>
-      <xs:extension base="expression"/>
+      <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
   </xs:complexType>
   <xs:simpleType name="remote">
@@ -632,7 +632,6 @@
       <xs:extension base="baseEvent">
         <xs:sequence>
           <xs:element type="i18nStringType" name="title" minOccurs="0"/>
-          <xs:element type="i18nStringType" name="message" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="type" use="required" type="eventType"/>
       </xs:extension>
@@ -642,6 +641,7 @@
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="actions" name="actions" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element type="i18nStringType" name="message" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="dataEvent">
