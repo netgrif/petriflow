@@ -329,7 +329,7 @@
   <!-- ===== INNER ELEMENTS ===== -->
   <xs:complexType name="timeZone">
     <xs:sequence>
-      <xs:element type="zoneId" name="zoneId" minOccurs="1"/>
+      <xs:element type="zoneId" name="zoneId"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="zoneId">
