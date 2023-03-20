@@ -1,25 +1,90 @@
-# Petriflow
-**Next-generation end-to-end low code language based on Petri nets.**
+# Petriflow documentation
 
-Petriflow process consists of a workflow model, roles, data and actions.
+Dokumentácia pre Petriflow low-code language je implementovaná pomocou Markdown súborov a kompilovaná pomocou
+frameworku docusaurus.
 
-## Workflow
-As a workflow model, Petriflow uses place/transition Petri nets enriched by reset arcs, inhibitor arcs and read arcs. 
-Transitions of Petri nets represent tasks of workflow models. 
+Dokumentácia je rozdelená do niekoľkých priečinkov podľa sekcii:
 
-## Roles
-Roles layer defines who can execute tasks. 
+| Priečinok  | Sekcia       | Popis                                                                                         |
+|------------|--------------|-----------------------------------------------------------------------------------------------|
+| docs       | Dokumentácia | Hlavná dokumentácia (technickejšieho charakteru.                                              |
+| action-api | Actions API  | Technické zdokumentovanie programového API pre akcie.                                         |
+| examples   | Examples     | Súhrn príkladov rôznych use caseov, mali by to byť ucelené príklady.                          |
+| guides     | Guidelines   | Coockbook / Petriflow kniha. Slovom vysvetlené rôzne použitia a úryvky ako a čo sa dá použiť. |
+| community  | Community    | Inštrukcie pre komunitu. Nahlasovanie rozšírení. Riadenie príspevkov a pod.                   |
+| blog       | News         | Novinky o verziách, o návodoch či udalostí v komunite.                                        |
 
-## Data variables
-Data variables represent all attributes of a process instance called case during its life-cycle. 
-Data variables associated to workflow tasks define data fields and create task forms. 
+Každá sekcia je vedená ako samostatný dokumentácia v vlastným indexovaným menu (sidebar). Každá sekcia má prelinkovanie
+s hornou lištou stránky.
 
-## Actions
-Actions are pieces of Groovy code that define reactions to events on tasks (assign event, finish event, cancel event) and events on data fields. 
-In actions, events can be triggered and external functions can be called.
-Workflow model, roles, data variables and data fields defining task forms are stored in XML.
+Pre tvorenie obsahu pre danú sekciu stačí vložiť MD súbor do príslušného priečinku sekcie. Podpriečinok v sekcii predstavuje
+kategóriu v rámci sekcie, ktorá má byť zobrazená v bočnom menu (sidebar) sekcie. Súbory v kategórii sú automaticky indexované.
+Pre definovanie dokumentu pre kategóriu je potrebné MD súbor pomenovať rovnako ako je názov kategórie. Vlastnosti kategórie
+je možné upravovať vložením súboru `_category_.json` (tak ako je napríklad v už pripraveným kategóriách).
+Sekcie majú predpripravené kategórie pre rozdelenie obsahu. Kategórie však môžu byť ľubolvne menené, čo pridávané.
 
-## Learn more
-To learn more about Petriflow language go to [Petriflow Wiki](https://netgrif.atlassian.net/wiki/spaces/PF) .
-You can also try to build your own application in publicly available [Application builder](https://builder.netgrif.com)
-and then deploy it to [Application Engine](https://netgrif.com/products/#nae).
+! Prosím neupravujte nastavenie projektu či konfiguračné súbory mimo sekcií obsahu v tomto projekte. !
+
+## Sekcie
+
+### docs
+
+Hlavná dokumentácia jazyk. Vysvetlenie konceptov a častí jazyka.
+
+Kategórie:
+
+- Introduction (súbor intro.md)
+- Core Concepts
+    - Process
+    - Petri Net
+    - Data
+    - Role
+    - Event & Actions
+- Data fields
+    - Layouts
+- Roles & permissions
+- Actions
+    - Events
+    - Functions
+- Filters & Search
+- Extensions (možnosti rozširovania jazyka a, ako ich implementovať)
+
+### action-api
+
+Technická špecifikácia API poskytnuté jazykom pre využitie v akciách.
+Akcie by mali byť napísané systémom 1 akcia na md súbor.
+Z veľkej časti vieme prepoužiť čo už máme.
+
+V budúcnosti by to mohlo byť buildované automatizovane z nejakej xml definície, z ktorej by sa generoval autocomplete
+do buildera a action delegate v engine.
+
+### examples
+
+Jednoduché stručné príklady použitia jazyka.
+Zahrnúť tie príklad, ktoré už máme.
+
+### guides
+
+Detailne vysvetlené štruktúry, koncepty, kúsky rôznych použití jazyka.
+Pôvodne myslené formou akou Gabo chce písať knihu.
+
+### community
+
+- Nahlasovanie chýb a žiadostí o rozšírenie.
+- Ako prispieť k rozvoju jazyka.
+- Rozvoj komunity
+
+### blog
+
+- novinky o verziách a obsahu stránky
+- novinky z komunity
+
+## Spustenie
+
+Pri prvotnom spustení je potrebné nainštalovať všetky dependencies príkazom `npm install`
+
+Následne je možné spustiť aplikáciu pre lokálny development pomocou príkazu `npm run start`,
+alebo spustením skriptu _start_ v súbore [package.json](package.json). Následne sa spustí
+lokálny webový server obsluhujúci dokumentáciu. Stránka je dostupná na `http://localhost:3000` 
+a je refreshovaná automaticky pre zmene obsahu dokumentácie.
+
