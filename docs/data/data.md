@@ -51,7 +51,39 @@ design of each button.
 
 ## Enumeration field
 
-> Coming soon
+An Enumeration Field is a user interface element used for inputting values from a predetermined set of choices. It typically appears as a dropdown list or selection box in which users can choose from a list of available options. The value of this field is represented as a ChoiceField, which is a data type that allows users to select from a list of pre-defined choices.
+
+In the case of the enumeration field described, the ChoiceField is of type I18nString. I18nString is a data type that allows for the localization of string values, meaning that the choices available in the enumeration field can be displayed in different languages based on the user's locale settings.
+
+Therefore, the enumeration field with a value of `ChoiceField<I18nString>` allows users to select from a list of localized options, with the application being able to capture and process the user's selection accordingly. The application can use the selected I18nString value to perform various operations or display information to the user in the selected language.
+
+```xml
+
+<data type="enumeration">
+  <id>enumeration_1</id>
+  <title>Enumeration field</title>
+  <options>
+    <option key="Choice one">Choice one</option>
+    <option key="Choice two">Choice two</option>
+    <option key="Choice three">Choice three</option>
+  </options>
+  <init>Choice one</init>
+</data>
+
+```
+
+<img alt="numberfield" src="../data/img/numberField.png" width="438" title="numberfield"/>
+
+#### Value
+
+* `ChoiceField<I18nString>` / `Set<String>`
+
+```Netgrif Actions API
+enumeration_1: f.enumeration_1;
+
+change enumeration_1 choices { ["a", "b", "c"] }
+change enumeration_1 value { "a" }
+```
 
 #### Component
 
@@ -136,16 +168,64 @@ In **text** view, i18n field supports these properties (disabled behavior):
 
 ## Multichoice field
 
-> Coming soon
+Multichoice Field is a user interface element used for inputting multiple values from a predetermined set of choices. It typically appears as a dropdown list or selection box with checkboxes next to each option, allowing users to select one or more choices from a list of available options. The value of this field is represented as a ChoiceField with a Set of I18nString, which is a data type that allows users to select from a list of pre-defined choices, where each choice can be localized into multiple languages based on the user's locale settings.
+
+In the case of the Multichoice field described, the ChoiceField is of type `Set<I18nString>`, which allows users to select multiple localized options from the list of available choices. The application can capture and process the user's selection as a set of I18nString values, each representing the localized version of the selected option. The application can then use these selected values to perform various operations or display information to the user in the selected languages.
+
+Overall, the Multichoice field with a value of `ChoiceField<Set<I18nString>>` allows users to select and submit multiple localized options simultaneously, providing a more flexible and powerful way of capturing user input compared to the single-selection Enumeration field.
+
+```xml
+<data type="multichoice">
+  <id>multichoice_0</id>
+  <title/>
+  <options>
+    <option key="Choice One">Choice One</option>
+    <option key="Choice Two">Choice Two</option>
+    <option key="Choice Three">Choice Three</option>
+  </options>
+  <inits>
+    <init>Choice One</init>
+    <init>Choice Two</init>
+  </inits>
+</data>
+```
 
 #### Component
 
 * `select` (default)
 * `list`
 
+```Netgrif Actions API
+multichoice_0: f.multichoice_0;
+
+change multichoice_0 choices { ["a", "b", "c"] }
+change multichoice_0 value { ["a", "b"] }
+```
+
 ## Number field
 
-> Coming soon
+A Number Field is a user interface element used for inputting numerical data. It typically appears as a rectangular box or input area in which users can enter numeric values, such as measurements, quantities, or other numeric data. The value of this field is a decimal number that can be manipulated by the application as needed, with the specific type being a Double. Double is a data type that represents a 64-bit floating-point number in the IEEE 754 standard, and can hold a wide range of numerical values, including those with decimal places. The application can perform calculations, comparisons, and other operations on the Double value entered into the Number Field as needed.
+
+```xml
+
+<data type="number">
+  <id>number_0</id>
+  <title>Text field</title>
+  <init>1</init>
+</data>
+```
+
+<img alt="numberfield" src="../data/img/numberField.png" width="438" title="numberfield"/>
+
+#### Value
+
+* `Double`
+
+Action to change number field value:
+```Netgrif Actions API
+number_0: f.number_0;
+change number_0 value {  3.525; }
+```
 
 #### Component
 
@@ -157,11 +237,6 @@ In **text** view, i18n field supports these properties (disabled behavior):
 A Text Field is a user interface element used for inputting text data. It typically appears as a rectangular box or
 input area in which users can enter text, such as names, descriptions, or other free-form text. The value of this field
 is a string of text that can be manipulated by the application as needed.
-
-This field has a single view, which is the text view, where the input area is visible and editable by the user. The
-input area may have additional formatting options such as font size, color, or alignment, depending on the application's
-design. The text field can also have validation rules, such as a maximum length or allowed character set, to ensure that
-the data entered is valid and usable by the application.
 
 ```xml
 
@@ -178,6 +253,7 @@ the data entered is valid and usable by the application.
 
 * `String`
 
+Action to change text field value:
 ```Netgrif Actions API
 text_0: f.text_0;
 change text_0 value {  "New text field value."; }
