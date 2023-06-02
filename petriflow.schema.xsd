@@ -26,7 +26,6 @@
         </xs:element>
       </xs:choice>
       <xs:choice>
-        <xs:element type="valid" name="valid" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element type="validations" name="validations" minOccurs="0"/>
       </xs:choice>
       <xs:choice>
@@ -578,8 +577,10 @@
   </xs:complexType>
   <xs:complexType name="validation">
     <xs:sequence>
-      <xs:element name="expression" type="valid"/>
-      <xs:element name="message" type="i18nStringType"/>
+      <xs:element type="xs:string" name="name" minOccurs="0"/>
+      <xs:element name="expression" type="valid" minOccurs="0"/>
+      <xs:element name="arguments" type="arguments" minOccurs="0"/>
+      <xs:element name="message" type="i18nStringType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="init">
@@ -762,6 +763,19 @@
       <xs:element type="xs:string" name="code" default="EUR"/>
       <xs:element type="xs:int" name="fractionSize"/>
       <xs:element type="xs:string" name="locale"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="argument">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="key" use="required"/>
+        <xs:attribute type="xs:boolean" name="dynamic" default="false"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="arguments">
+    <xs:sequence>
+      <xs:element type="argument" name="argument" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <!-- UTILS -->
