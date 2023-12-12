@@ -246,6 +246,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="number"/>
       <xs:enumeration value="text"/>
+      <xs:enumeration value="stringCollection"/>
       <xs:enumeration value="enumeration"/>
       <xs:enumeration value="enumeration_map"/>
       <xs:enumeration value="multichoice"/>
