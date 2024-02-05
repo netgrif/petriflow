@@ -603,9 +603,7 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:simpleType name="remote">
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="0"/>
-    </xs:restriction>
+    <xs:restriction base="xs:string"/>
   </xs:simpleType>
   <xs:complexType name="trigger">
     <!--todo: only if time -->
