@@ -45,7 +45,7 @@
       </xs:choice>
       <xs:element type="actionRef" name="actionRef" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="documentRef" name="documentRef" minOccurs="0"/>
-      <xs:element type="remote" name="remote" minOccurs="0"/>
+      <xs:element type="xs:string" name="remote" minOccurs="0"/>
       <xs:element type="xs:int" name="length" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
     </xs:sequence>
@@ -602,9 +602,6 @@
       <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="remote">
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
   <xs:complexType name="trigger">
     <!--todo: only if time -->
     <xs:choice minOccurs="0">
