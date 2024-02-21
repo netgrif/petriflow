@@ -69,6 +69,7 @@
       </xs:choice>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
+    <xs:attribute name="global" type="xs:boolean"/>
   </xs:complexType>
   <xs:complexType name="mapping">
     <xs:sequence>
