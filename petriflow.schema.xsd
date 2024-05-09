@@ -4,12 +4,6 @@
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1.1.0">
   <!-- ===== DOCUMENT ELEMENTS ===== -->
-  <xs:complexType name="transaction">
-    <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
-      <xs:element type="i18nStringType" name="title"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="data">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
@@ -33,10 +27,6 @@
         <xs:element type="init" name="init" minOccurs="0"/>
         <xs:element type="inits" name="inits" minOccurs="0"/>
       </xs:choice>
-      <xs:element type="format" name="format" minOccurs="0"/>
-      <xs:choice>
-        <xs:element name="view" minOccurs="0" type="fieldView"/>
-      </xs:choice>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="encryption" name="encryption" minOccurs="0"/>
       <xs:choice>
@@ -45,9 +35,13 @@
       </xs:choice>
       <xs:element type="actionRef" name="actionRef" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="documentRef" name="documentRef" minOccurs="0"/>
-      <xs:element type="remote" name="remote" minOccurs="0"/>
-      <xs:element type="xs:int" name="length" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="dataPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
     <xs:attribute type="data_type" name="type" use="required"/>
     <xs:attribute type="xs:boolean" name="immediate"/>
@@ -56,54 +50,45 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute type="scope" name="scope" use="required"/>
-        <xs:attribute type="xs:string" name="name" use="required"/>
+        <xs:attribute type="xs:string" name="title" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="role">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
-      <xs:choice>
-        <xs:element type="i18nStringType" name="title"/>
-        <xs:element type="i18nStringType" name="name"/>
-      </xs:choice>
+      <xs:element type="i18nStringType" name="title"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="rolePropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="mapping">
-    <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
-      <xs:element type="xs:string" name="transitionRef"/>
-      <xs:element type="roleRef" name="roleRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="dataGroup" name="dataGroup" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="trigger" name="trigger" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
+    <xs:attribute type="scope" name="scope" default="process"/>
   </xs:complexType>
   <xs:complexType name="transition">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
-      <xs:element type="i18nStringType" name="label"/>
+      <xs:element type="i18nStringType" name="title"/>
       <xs:element type="tags" name="tags" minOccurs="0"/>
       <xs:element type="transitionLayout" name="layout" minOccurs="0"/>
       <xs:element type="xs:string" name="icon" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="priority" minOccurs="0"/>
       <xs:element type="assignPolicy" name="assignPolicy" minOccurs="0"/>
-      <xs:element type="dataFocusPolicy" name="dataFocusPolicy" minOccurs="0"/>
       <xs:element type="finishPolicy" name="finishPolicy" minOccurs="0"/>
       <xs:element type="trigger" name="trigger" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element type="transactionRef" name="transactionRef" minOccurs="0"/>
       <xs:element type="roleRef" name="roleRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:choice minOccurs="0">
-        <xs:element type="userRef" name="usersRef" maxOccurs="unbounded"/>
-        <xs:element type="userRef" name="userRef" maxOccurs="unbounded"/>
-      </xs:choice>
-      <xs:element type="assignedUser" name="assignedUser" minOccurs="0"/>
       <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="dataGroup" name="dataGroup" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="transitionPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="transitionLayout">
@@ -122,13 +107,20 @@
       <xs:element type="xs:string" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
-      <xs:element type="i18nStringType" name="label"/>
+      <xs:element type="i18nStringType" name="title"/>
       <xs:element type="nonNegativeInteger" name="tokens"/>
       <xs:choice>
         <xs:element type="xs:boolean" name="isStatic"/>
         <xs:element type="xs:boolean" name="static"/>
       </xs:choice>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="placePropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
+    <xs:attribute type="scope" name="scope" default="process"/>
   </xs:complexType>
   <xs:complexType name="arc">
     <xs:sequence>
@@ -136,9 +128,14 @@
       <xs:element name="type" type="arc_type" default="regular"/>
       <xs:element type="xs:string" name="sourceId"/>
       <xs:element type="xs:string" name="destinationId"/>
-      <xs:element type="nonNegativeInteger" name="multiplicity"/>
-      <xs:element type="xs:string" name="reference" minOccurs="0"/>
+      <xs:element type="expression" name="multiplicity"/>
       <xs:element type="breakpoint" name="breakpoint" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="arcPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="i18n">
@@ -157,34 +154,14 @@
       <xs:element type="caseEvent" name="event" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="document">
+  <xs:element name="process">
     <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="documentType"/>
+        <xs:extension base="processType"/>
       </xs:complexContent>
     </xs:complexType>
-    <xs:unique name="transitionUniqueId">
-      <xs:selector xpath="./transition"/>
-      <xs:field xpath="id"/>
-    </xs:unique>
-    <xs:unique name="placeUniqueId">
-      <xs:selector xpath="./place"/>
-      <xs:field xpath="id"/>
-    </xs:unique>
-    <xs:unique name="arcUniqueId">
-      <xs:selector xpath="./arc"/>
-      <xs:field xpath="id"/>
-    </xs:unique>
-    <xs:unique name="roleUniqueId">
-      <xs:selector xpath="./role"/>
-      <xs:field xpath="id"/>
-    </xs:unique>
-    <xs:unique name="dataUniqueId">
-      <xs:selector xpath="./data"/>
-      <xs:field xpath="id"/>
-    </xs:unique>
-    <xs:unique name="mappingId">
-      <xs:selector xpath="./mapping"/>
+    <xs:unique name="globalUniqueId">
+      <xs:selector xpath="./data|./role|./arc|./place|./transition"/>
       <xs:field xpath="id"/>
     </xs:unique>
     <xs:key name="ptIdKey">
@@ -201,16 +178,14 @@
       <xs:field xpath="destinationId"/>
     </xs:keyref>
   </xs:element>
-  <xs:complexType name="documentType">
+  <xs:complexType name="processType">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="xs:string" name="version" minOccurs="0"/>
-      <xs:element type="initials" name="initials"/>
       <xs:element type="i18nStringType" name="title"/>
       <xs:element type="xs:string" name="icon" minOccurs="0"/>
       <xs:element type="xs:boolean" name="defaultRole" minOccurs="0" default="true"/>
       <xs:element type="xs:boolean" name="anonymousRole" minOccurs="0" default="true"/>
-      <xs:element type="xs:boolean" name="transitionRole" minOccurs="0" default="true"/>
       <xs:element type="tags" name="tags" minOccurs="0"/>
       <xs:element type="i18nStringTypeWithExpression" name="caseName" minOccurs="0"/>
       <xs:element type="caseRoleRef" name="roleRef" maxOccurs="unbounded" minOccurs="0"/>
@@ -220,11 +195,9 @@
       </xs:choice>
       <xs:element type="processEvents" name="processEvents" minOccurs="0"/>
       <xs:element type="caseEvents" name="caseEvents" minOccurs="0"/>
-      <xs:element type="transaction" name="transaction" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="role" name="role" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="function" name="function" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="data" name="data" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="mapping" name="mapping" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="i18n" name="i18n" maxOccurs="unbounded" minOccurs="0">
         <xs:unique name="i18nStringUniqueName">
           <xs:selector xpath="./i18nString"/>
@@ -232,10 +205,6 @@
         </xs:unique>
       </xs:element>
       <xs:element type="transition" name="transition" maxOccurs="unbounded">
-        <xs:unique name="dataGroupUniqueId">
-          <xs:selector xpath="./dataGroup"/>
-          <xs:field xpath="id"/>
-        </xs:unique>
       </xs:element>
       <xs:element type="place" name="place" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="arc" name="arc" maxOccurs="unbounded" minOccurs="0"/>
@@ -269,6 +238,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="namespace"/>
       <xs:enumeration value="process"/>
+      <xs:enumeration value="useCase"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="arc_type">
@@ -285,14 +255,6 @@
       <xs:extension base="expression"/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="dataGroupAlignment">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="start"/>
-      <xs:enumeration value="center"/>
-      <xs:enumeration value="end"/>
-      <xs:enumeration value="left"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="triggerType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="auto"/>
@@ -322,12 +284,6 @@
       <xs:minInclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="dataFocusPolicy">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="manual"/>
-      <xs:enumeration value="auto_empty_required"/>
-    </xs:restriction>
-  </xs:simpleType>
   <!-- ===== INNER ELEMENTS ===== -->
   <xs:simpleType name="template">
     <xs:restriction base="xs:string">
@@ -349,11 +305,6 @@
       <xs:element type="nonNegativeInteger" name="y"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:simpleType name="initials">
-    <xs:restriction base="xs:string">
-      <xs:length value="3"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="options">
     <xs:choice>
       <xs:element type="option" name="option" minOccurs="0" maxOccurs="unbounded"/>
@@ -374,10 +325,10 @@
   </xs:complexType>
   <xs:complexType name="component">
     <xs:sequence>
-      <xs:element name="name" type="xs:string"/>
+      <xs:element name="title" type="xs:string"/>
       <xs:choice>
         <xs:element type="property" name="property" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element type="properties" name="properties"/>
+        <xs:element type="componentProperties" name="properties"/>
       </xs:choice>
     </xs:sequence>
   </xs:complexType>
@@ -395,7 +346,7 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="properties">
+  <xs:complexType name="componentProperties">
     <xs:sequence>
       <xs:element type="property" name="property" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="option_icons" type="icons" minOccurs="0"/>
@@ -462,17 +413,7 @@
       <xs:element type="actionRef" name="actionRef" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="transactionRef">
-    <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="roleRef">
-    <xs:complexContent>
-      <xs:extension base="permissionRef"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="userRef">
     <xs:complexContent>
       <xs:extension base="permissionRef"/>
     </xs:complexContent>
@@ -481,6 +422,12 @@
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="logic" name="logic"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="permissionRefPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="caseRoleRef">
@@ -512,11 +459,18 @@
   </xs:simpleType>
   <xs:complexType name="dataRef">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="id">
+      </xs:element>
       <xs:element type="logic" name="logic"/>
       <xs:element type="layout" name="layout" minOccurs="0"/>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="dataEvent" name="event" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="dataRefPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="layout">
@@ -529,12 +483,6 @@
       <xs:element type="template" name="template" minOccurs="0"/>
       <xs:element type="appearance" name="appearance" minOccurs="0"/>
       <xs:element type="fieldAlignment" name="alignment" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="assignedUser">
-    <xs:sequence>
-      <xs:element type="xs:boolean" name="cancel" minOccurs="0"/>
-      <xs:element type="xs:boolean" name="reassign" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="fieldAlignment">
@@ -564,20 +512,6 @@
       <xs:enumeration value="up"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="dataGroup">
-    <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
-      <xs:element type="nonNegativeInteger" name="cols" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="rows" minOccurs="0"/>
-      <xs:element type="layoutType" name="layout"/>
-      <xs:element type="i18nStringType" name="title" minOccurs="0"/>
-      <xs:element type="dataGroupAlignment" name="alignment" minOccurs="0"/>
-      <xs:element type="xs:boolean" name="stretch" minOccurs="0"/>
-      <xs:element type="hideEmptyRows" name="hideEmptyRows" minOccurs="0"/>
-      <xs:element type="compactDirection" name="compactDirection" minOccurs="0"/>
-      <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="action">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -602,11 +536,6 @@
       <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="remote">
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="0"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="trigger">
     <!--todo: only if time -->
     <xs:choice minOccurs="0">
@@ -631,7 +560,7 @@
   <xs:complexType name="i18nStringType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="title" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -657,6 +586,12 @@
       <xs:element type="xs:string" name="id"/>
       <xs:element type="actions" name="actions" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="i18nStringType" name="message" minOccurs="0"/>
+      <xs:element type="properties" name="properties" minOccurs="0">
+        <xs:unique name="eventPropertyUniqueKey">
+          <xs:selector xpath="./property"/>
+          <xs:field xpath="@key"/>
+        </xs:unique>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="dataEvent">
@@ -685,7 +620,9 @@
       <xs:enumeration value="assign"/>
       <xs:enumeration value="cancel"/>
       <xs:enumeration value="finish"/>
-      <xs:enumeration value="delegate"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="reassign"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataEventType">
@@ -703,6 +640,9 @@
   <xs:simpleType name="processEventType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="upload"/>
+      <xs:enumeration value="delete"/>
+      <xs:enumeration value="activate"/>
+      <xs:enumeration value="deactivate"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="eventPhaseType">
@@ -767,16 +707,16 @@
       <xs:element name="false" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="format">
-    <xs:choice>
-      <xs:element type="currency" name="currency"/>
-    </xs:choice>
-  </xs:complexType>
   <xs:complexType name="currency">
     <xs:sequence>
       <xs:element type="xs:string" name="code" default="EUR"/>
       <xs:element type="xs:int" name="fractionSize"/>
       <xs:element type="xs:string" name="locale"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="properties">
+    <xs:sequence>
+      <xs:element type="property" name="property" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <!-- UTILS -->
