@@ -66,7 +66,7 @@
         </xs:unique>
       </xs:element>
     </xs:sequence>
-    <xs:attribute type="scope" name="scope" default="process"/>
+    <xs:attribute type="scope" name="scope" use="required"/>
   </xs:complexType>
   <xs:complexType name="transition">
     <xs:sequence>
@@ -109,7 +109,7 @@
         </xs:unique>
       </xs:element>
     </xs:sequence>
-    <xs:attribute type="scope" name="scope" default="process"/>
+    <xs:attribute type="scope" name="scope" use="required"/>
   </xs:complexType>
   <xs:complexType name="arc">
     <xs:sequence>
