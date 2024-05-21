@@ -3,12 +3,13 @@
 <xs:schema elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1.1.0">
-  <!-- ===== DOCUMENT ELEMENTS ===== -->
+  <!-- ===== PROCESS ELEMENTS ===== -->
   <xs:element name="process">
     <xs:complexType>
       <xs:sequence>
         <xs:element type="xs:string" name="id"/>
-        <xs:element type="xs:string" name="version" minOccurs="0"/>
+        <xs:element type="xs:string" name="version"/>
+        <xs:element type="extension" name="extends" minOccurs="0"/>
         <xs:element type="i18nStringType" name="title"/>
         <xs:element type="xs:string" name="icon" minOccurs="0"/>
         <xs:element type="xs:boolean" name="defaultRole" minOccurs="0" default="true"/>
@@ -49,6 +50,12 @@
       <xs:field xpath="destinationId"/>
     </xs:keyref>
   </xs:element>
+  <xs:complexType name="extension">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="version"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="data">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
