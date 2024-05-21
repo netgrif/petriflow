@@ -582,6 +582,7 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="trigger"/>
+        <xs:attribute name="type" type="actionType"/>
         <xs:attribute name="id"/>
       </xs:extension>
     </xs:simpleContent>
@@ -709,6 +710,26 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="pre"/>
       <xs:enumeration value="post"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="actionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="defaultValue"/>
+      <xs:enumeration value="initExpression"/>
+      <xs:enumeration value="validations"/>
+      <xs:enumeration value="title"/>
+      <xs:enumeration value="description"/>
+      <xs:enumeration value="placeholder"/>
+      <xs:enumeration value="behavior"/>
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="immediate"/>
+      <xs:enumeration value="component"/>
+      <xs:enumeration value="allowedNets"/>
+      <xs:enumeration value="choices"/>
+      <xs:enumeration value="choicesExpression"/>
+      <xs:enumeration value="options"/>
+      <xs:enumeration value="optionsExpression"/>
+      <xs:enumeration value="roles"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="actions">
