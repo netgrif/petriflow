@@ -120,7 +120,6 @@
         <xs:element type="flexContainer" name="flex"/>
         <xs:element type="gridContainer" name="grid"/>
       </xs:choice>
-      <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
         <xs:unique name="transitionPropertyUniqueKey">
@@ -135,7 +134,7 @@
       <xs:element type="xs:string" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
-      <xs:element type="i18nStringType" name="title"/>
+      <xs:element type="i18nStringType" name="title" minOccurs="0"/>
       <xs:element type="nonNegativeInteger" name="tokens"/>
       <xs:choice>
         <xs:element type="xs:boolean" name="isStatic"/>
@@ -333,9 +332,9 @@
   </xs:complexType>
   <xs:complexType name="dataRefLogic">
     <xs:sequence>
-      <xs:element name="behavior" type="behavior" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element name="required" type="xs:boolean" default="false"/>
-      <xs:element name="immediate" type="xs:boolean" default="false"/>
+      <xs:element name="behavior" type="behavior" minOccurs="0"/>
+      <xs:element name="required" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="immediate" type="xs:boolean" default="false" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="caseLogic">
@@ -385,9 +384,6 @@
       <xs:enumeration value="hidden"/>
       <xs:enumeration value="visible"/>
       <xs:enumeration value="editable"/>
-      <xs:enumeration value="required"/>
-      <xs:enumeration value="immediate"/>
-      <xs:enumeration value="optional"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="dataRef">
@@ -545,7 +541,7 @@
   </xs:complexType>
   <xs:complexType name="properties">
     <xs:sequence>
-      <xs:element type="property" name="property" maxOccurs="unbounded"/>
+      <xs:element type="property" name="property" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="property">
