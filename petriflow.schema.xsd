@@ -87,7 +87,7 @@
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute type="scope" name="scope"/>
-        <xs:attribute type="xs:string" name="id" use="required"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
