@@ -328,6 +328,7 @@
       <xs:element type="xs:boolean" name="cancel" minOccurs="0"/>
       <xs:element type="xs:boolean" name="finish" minOccurs="0"/>
       <xs:element type="xs:boolean" name="reassign" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="view_disabled" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="dataRefLogic">
