@@ -116,7 +116,10 @@
       <xs:element type="finishPolicy" name="finishPolicy" minOccurs="0"/>
       <xs:element type="trigger" name="trigger" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="roleRef" name="roleRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="form" name="form" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
       <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
@@ -391,7 +394,6 @@
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="dataRefLogic" name="logic"/>
-      <xs:element type="layout" name="layout" minOccurs="0"/>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="dataEvent" name="event" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="properties" name="properties" minOccurs="0">
@@ -559,29 +561,60 @@
       <xs:enumeration value=""/>
     </xs:restriction>
   </xs:simpleType>
-<!--  FORMS-->
-  <xs:complexType name="form">
+  <!--  FORMS-->
+  <xs:complexType name="flexContainer">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
-      <xs:element type="formLayout" name="layout"/>
-      <xs:element type="formContent" name="content"/>
+      <xs:element type="flexItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="flexContainerProperties" name="properties" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="flexLayout">
+  <xs:complexType name="flexItem">
     <xs:sequence>
-      <xs:element type="flexLayoutDisplay" name="display" minOccurs="0" default="flex"/>
-      <xs:element type="flexDirection" name="flex-direction" minOccurs="0" default="row"/>
-      <xs:element type="flexWrap" name="flex-wrap" minOccurs="0" default="nowrap"/>
-      <xs:element type="xs:string" name="flex-flow" minOccurs="0"/>
-      <xs:element type="justifyContent" name="justify-content" minOccurs="0" default="flex-start"/>
-      <xs:element type="alignItems" name="align-items" minOccurs="0" default="stretch"/>
-      <xs:element type="alignContent" name="align-content" minOccurs="0" default="normal"/>
-      <xs:element type="xs:string" name="gap" minOccurs="0"/>
-      <xs:element type="xs:string" name="row-gap" minOccurs="0"/>
-      <xs:element type="xs:string" name="column-gap" minOccurs="0"/>
+      <xs:choice>
+        <xs:element type="dataRef" name="dataRef"/>
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
+      <xs:element type="flexItemProperties" name="properties" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="gridLayout">
+  <xs:complexType name="gridContainer">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="gridItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="gridContainerProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gridItem">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element type="dataRef" name="dataRef"/>
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
+      <xs:element type="gridItemProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flexContainerProperties">
+    <xs:complexContent>
+      <xs:extension base="properties">
+        <xs:sequence>
+          <xs:element type="flexLayoutDisplay" name="display" minOccurs="0" default="flex"/>
+          <xs:element type="flexDirection" name="flex-direction" minOccurs="0" default="row"/>
+          <xs:element type="flexWrap" name="flex-wrap" minOccurs="0" default="nowrap"/>
+          <xs:element type="xs:string" name="flex-flow" minOccurs="0"/>
+          <xs:element type="justifyContent" name="justify-content" minOccurs="0" default="flex-start"/>
+          <xs:element type="alignItems" name="align-items" minOccurs="0" default="stretch"/>
+          <xs:element type="alignContent" name="align-content" minOccurs="0" default="normal"/>
+          <xs:element type="xs:string" name="gap" minOccurs="0"/>
+          <xs:element type="xs:string" name="row-gap" minOccurs="0"/>
+          <xs:element type="xs:string" name="column-gap" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="gridContainerProperties">
     <xs:sequence>
       <xs:element type="gridLayoutDisplay" name="display" minOccurs="0" default="grid"/>
       <xs:element type="xs:string" name="grid-template-columns" minOccurs="0"/>
@@ -679,7 +712,7 @@
       <xs:enumeration value="end"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="flexItemLayout">
+  <xs:complexType name="flexItemProperties">
     <xs:sequence>
       <xs:element type="xs:int" name="order" minOccurs="0" default="0"/>
       <xs:element type="xs:int" name="flex-grow" minOccurs="0" default="0"/>
@@ -701,7 +734,7 @@
       <xs:enumeration value="inherit"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="gridItemLayout">
+  <xs:complexType name="gridItemProperties">
     <xs:sequence>
       <xs:element type="xs:string" name="grid-column-start" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-column-end" minOccurs="0"/>
@@ -767,32 +800,4 @@
       <xs:enumeration value="dense"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="layout">
-    <xs:sequence>
-      <xs:choice>
-        <xs:element type="flexItemLayout" name="flexItem"/>
-        <xs:element type="gridItemLayout" name="gridItem"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="formLayout">
-    <xs:sequence>
-      <xs:choice>
-        <xs:element type="flexLayout" name="flex"/>
-        <xs:element type="gridLayout" name="grid"/>
-      </xs:choice>
-      <xs:choice minOccurs="0">
-        <xs:element type="flexItemLayout" name="flexItem"/>
-        <xs:element type="gridItemLayout" name="gridItem"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="formContent">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
-        <xs:element type="form" name="form" maxOccurs="unbounded" minOccurs="0"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>
