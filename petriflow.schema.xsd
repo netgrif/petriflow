@@ -111,13 +111,15 @@
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
       <xs:element type="i18nStringType" name="title"/>
-      <xs:element type="transitionLayout" name="layout" minOccurs="0"/>
       <xs:element type="xs:string" name="icon" minOccurs="0"/>
       <xs:element type="assignPolicy" name="assignPolicy" minOccurs="0"/>
       <xs:element type="finishPolicy" name="finishPolicy" minOccurs="0"/>
       <xs:element type="trigger" name="trigger" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="roleRef" name="roleRef" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element type="dataRef" name="dataRef" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
         <xs:unique name="transitionPropertyUniqueKey">
@@ -127,23 +129,12 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="transitionLayout">
-    <xs:sequence>
-      <xs:element type="nonNegativeInteger" name="cols" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="rows" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="offset" minOccurs="0"/>
-      <xs:element name="fieldAlignment" type="fieldAlignment" minOccurs="0"/>
-      <xs:element type="hideEmptyRows" name="hideEmptyRows" minOccurs="0"/>
-      <xs:element type="compactDirection" name="compactDirection" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="type" type="layoutType"/>
-  </xs:complexType>
   <xs:complexType name="place">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
-      <xs:element type="i18nStringType" name="title"/>
+      <xs:element type="i18nStringType" name="title" minOccurs="0"/>
       <xs:element type="nonNegativeInteger" name="tokens"/>
       <xs:choice>
         <xs:element type="xs:boolean" name="isStatic"/>
@@ -341,9 +332,9 @@
   </xs:complexType>
   <xs:complexType name="dataRefLogic">
     <xs:sequence>
-      <xs:element name="behavior" type="behavior" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element name="required" type="xs:boolean" default="false"/>
-      <xs:element name="immediate" type="xs:boolean" default="false"/>
+      <xs:element name="behavior" type="behavior" minOccurs="0"/>
+      <xs:element name="required" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="immediate" type="xs:boolean" default="false" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="caseLogic">
@@ -393,16 +384,12 @@
       <xs:enumeration value="hidden"/>
       <xs:enumeration value="visible"/>
       <xs:enumeration value="editable"/>
-      <xs:enumeration value="required"/>
-      <xs:enumeration value="immediate"/>
-      <xs:enumeration value="optional"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="dataRef">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
       <xs:element type="dataRefLogic" name="logic"/>
-      <xs:element type="layout" name="layout" minOccurs="0"/>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="dataEvent" name="event" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="properties" name="properties" minOccurs="0">
@@ -413,45 +400,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="layout">
-    <xs:sequence>
-      <xs:element type="nonNegativeInteger" name="x" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="y" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="rows" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="cols" minOccurs="0"/>
-      <xs:element type="nonNegativeInteger" name="offset" minOccurs="0"/>
-      <xs:element type="template" name="template" minOccurs="0"/>
-      <xs:element type="appearance" name="appearance" minOccurs="0"/>
-      <xs:element type="fieldAlignment" name="alignment" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:simpleType name="fieldAlignment">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="top"/>
-      <xs:enumeration value="center"/>
-      <xs:enumeration value="bottom"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="layoutType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="flow"/>
-      <xs:enumeration value="grid"/>
-      <xs:enumeration value="legacy"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="hideEmptyRows">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="all"/>
-      <xs:enumeration value="compacted"/>
-      <xs:enumeration value="none"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="compactDirection">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="none"/>
-      <xs:enumeration value="up"/>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="action">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -593,7 +541,7 @@
   </xs:complexType>
   <xs:complexType name="properties">
     <xs:sequence>
-      <xs:element type="property" name="property" maxOccurs="unbounded"/>
+      <xs:element type="property" name="property" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="property">
@@ -607,6 +555,245 @@
   <xs:simpleType name="empty">
     <xs:restriction base="xs:string">
       <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  FORMS-->
+  <xs:complexType name="flexContainer">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="flexItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="flexContainerProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flexItem">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element type="dataRef" name="dataRef"/>
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
+      <xs:element type="flexItemProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gridContainer">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="gridItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="gridContainerProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gridItem">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element type="dataRef" name="dataRef"/>
+        <xs:element type="flexContainer" name="flex"/>
+        <xs:element type="gridContainer" name="grid"/>
+      </xs:choice>
+      <xs:element type="gridItemProperties" name="properties" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="flexContainerProperties">
+    <xs:complexContent>
+      <xs:extension base="properties">
+        <xs:sequence>
+          <xs:element type="flexLayoutDisplay" name="display" minOccurs="0" default="flex"/>
+          <xs:element type="flexDirection" name="flex-direction" minOccurs="0" default="row"/>
+          <xs:element type="flexWrap" name="flex-wrap" minOccurs="0" default="nowrap"/>
+          <xs:element type="xs:string" name="flex-flow" minOccurs="0"/>
+          <xs:element type="justifyContent" name="justify-content" minOccurs="0" default="flex-start"/>
+          <xs:element type="alignItems" name="align-items" minOccurs="0" default="stretch"/>
+          <xs:element type="alignContent" name="align-content" minOccurs="0" default="normal"/>
+          <xs:element type="xs:string" name="gap" minOccurs="0"/>
+          <xs:element type="xs:string" name="row-gap" minOccurs="0"/>
+          <xs:element type="xs:string" name="column-gap" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="gridContainerProperties">
+    <xs:sequence>
+      <xs:element type="gridLayoutDisplay" name="display" minOccurs="0" default="grid"/>
+      <xs:element type="xs:string" name="grid-template-columns" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-template-rows" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-template-areas" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-template" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-column-gap" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-row-gap" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-gap" minOccurs="0"/>
+      <xs:element type="justifyItems" name="justify-items" minOccurs="0" default="stretch"/>
+      <xs:element type="gridLayoutAlignItems" name="align-items" minOccurs="0" default="stretch"/>
+      <xs:element type="xs:string" name="place-items" minOccurs="0"/>
+      <xs:element type="gridLayoutJustifyContent" name="justify-content" minOccurs="0" default="stretch"/>
+      <xs:element type="gridLayoutAlignContent" name="align-content" minOccurs="0" default="stretch"/>
+      <xs:element type="xs:string" name="place-content" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-auto-columns" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-auto-rows" minOccurs="0"/>
+      <xs:element type="gridAutoFlow" name="grid-auto-flow" minOccurs="0" default="row"/>
+      <xs:element type="xs:string" name="grid" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="flexDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="column"/>
+      <xs:enumeration value="column-reverse"/>
+      <xs:enumeration value="row"/>
+      <xs:enumeration value="row-reverse"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="flexWrap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="wrap"/>
+      <xs:enumeration value="nowrap"/>
+      <xs:enumeration value="wrap-reverse"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="justifyContent">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="flex-start"/>
+      <xs:enumeration value="flex-end"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="left"/>
+      <xs:enumeration value="right"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="space-between"/>
+      <xs:enumeration value="space-around"/>
+      <xs:enumeration value="space-evenly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="alignItems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stretch"/>
+      <xs:enumeration value="flex-start"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="self-start"/>
+      <xs:enumeration value="flex-end"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="self-end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="baseline"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="alignContent">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="flex-start"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="flex-end"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="space-between"/>
+      <xs:enumeration value="space-around"/>
+      <xs:enumeration value="space-evenly"/>
+      <xs:enumeration value="stretch"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gridLayoutJustifyContent">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="space-evenly"/>
+      <xs:enumeration value="space-around"/>
+      <xs:enumeration value="space-between"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gridLayoutAlignContent">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="space-evenly"/>
+      <xs:enumeration value="space-around"/>
+      <xs:enumeration value="space-between"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="flexItemProperties">
+    <xs:sequence>
+      <xs:element type="xs:int" name="order" minOccurs="0" default="0"/>
+      <xs:element type="xs:int" name="flex-grow" minOccurs="0" default="0"/>
+      <xs:element type="xs:int" name="flex-shrink" minOccurs="0" default="1"/>
+      <xs:element type="xs:string" name="flex-basis" minOccurs="0" default="auto"/>
+      <xs:element type="xs:string" name="flex" minOccurs="0"/>
+      <xs:element type="flexItemAlignSelf" name="align-self" minOccurs="0" default="auto"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="flexItemAlignSelf">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="stretch"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="flex-start"/>
+      <xs:enumeration value="flex-end"/>
+      <xs:enumeration value="baseline"/>
+      <xs:enumeration value="initial"/>
+      <xs:enumeration value="inherit"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="gridItemProperties">
+    <xs:sequence>
+      <xs:element type="xs:string" name="grid-column-start" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-column-end" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-row-start" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-row-end" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-column" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-row" minOccurs="0"/>
+      <xs:element type="xs:string" name="grid-area" minOccurs="0"/>
+      <xs:element type="justifySelf" name="justify-self" minOccurs="0" default="stretch"/>
+      <xs:element type="gridItemAlignSelf" name="align-self" minOccurs="0" default="stretch"/>
+      <xs:element type="xs:string" name="place-self" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="gridItemAlignSelf">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="stretch"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="justifySelf">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="stretch"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="flexLayoutDisplay">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="flex"/>
+      <xs:enumeration value="inline-flex"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gridLayoutDisplay">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="grid"/>
+      <xs:enumeration value="inline-grid"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="justifyItems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="stretch"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gridLayoutAlignItems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stretch"/>
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="end"/>
+      <xs:enumeration value="center"/>
+      <xs:enumeration value="baseline"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="gridAutoFlow">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="row"/>
+      <xs:enumeration value="column"/>
+      <xs:enumeration value="dense"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
