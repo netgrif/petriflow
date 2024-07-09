@@ -3,12 +3,13 @@
 <xs:schema elementFormDefault="qualified"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            version="1.1.0">
-  <!-- ===== DOCUMENT ELEMENTS ===== -->
+  <!-- ===== PROCESS ELEMENTS ===== -->
   <xs:element name="process">
     <xs:complexType>
       <xs:sequence>
         <xs:element type="xs:string" name="id"/>
-        <xs:element type="xs:string" name="version" minOccurs="0"/>
+        <xs:element type="xs:string" name="version"/>
+        <xs:element type="extension" name="extends" minOccurs="0"/>
         <xs:element type="i18nStringType" name="title"/>
         <xs:element type="xs:string" name="icon" minOccurs="0"/>
         <xs:element type="xs:boolean" name="defaultRole" minOccurs="0" default="true"/>
@@ -49,6 +50,12 @@
       <xs:field xpath="destinationId"/>
     </xs:keyref>
   </xs:element>
+  <xs:complexType name="extension">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="version"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="data">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
@@ -639,8 +646,11 @@
       <xs:element type="xs:string" name="grid-template-rows" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-template-areas" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-template" minOccurs="0"/>
+      <xs:element type="xs:string" name="column-gap" minOccurs="0"/>
+      <xs:element type="xs:string" name="row-gap" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-column-gap" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-row-gap" minOccurs="0"/>
+      <xs:element type="xs:string" name="gap" minOccurs="0"/>
       <xs:element type="xs:string" name="grid-gap" minOccurs="0"/>
       <xs:element type="justifyItems" name="justify-items" minOccurs="0" default="stretch"/>
       <xs:element type="gridLayoutAlignItems" name="align-items" minOccurs="0" default="stretch"/>
@@ -718,6 +728,7 @@
       <xs:enumeration value="center"/>
       <xs:enumeration value="start"/>
       <xs:enumeration value="end"/>
+      <xs:enumeration value="stretch"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="gridLayoutAlignContent">
@@ -728,6 +739,7 @@
       <xs:enumeration value="space-between"/>
       <xs:enumeration value="start"/>
       <xs:enumeration value="end"/>
+      <xs:enumeration value="stretch"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="flexItemProperties">
@@ -748,8 +760,6 @@
       <xs:enumeration value="flex-start"/>
       <xs:enumeration value="flex-end"/>
       <xs:enumeration value="baseline"/>
-      <xs:enumeration value="initial"/>
-      <xs:enumeration value="inherit"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="gridItemProperties">
