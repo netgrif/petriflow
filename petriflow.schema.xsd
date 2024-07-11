@@ -424,8 +424,9 @@
   </xs:complexType>
   <xs:complexType name="validation">
     <xs:sequence>
-      <xs:element name="expression" type="expression"/>
-      <xs:element name="message" type="i18nStringType"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element name="arguments" type="arguments" minOccurs="0"/>
+      <xs:element name="message" type="i18nStringType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="init">
@@ -580,6 +581,18 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:complexType name="arguments">
+    <xs:sequence>
+      <xs:element type="xs:string" name="argument" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="argumentType" name="type" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="argumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="client"/>
+      <xs:enumeration value="server"/>
+    </xs:restriction>
+  </xs:simpleType>
   <!-- UTILS -->
   <xs:simpleType name="empty">
     <xs:restriction base="xs:string">
