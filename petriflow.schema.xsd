@@ -566,6 +566,13 @@
     </xs:restriction>
   </xs:simpleType>
   <!--  FORMS-->
+  <xs:complexType name="layoutItem">
+    <xs:choice>
+      <xs:element type="dataRef" name="dataRef"/>
+      <xs:element type="flexContainer" name="flex"/>
+      <xs:element type="gridContainer" name="grid"/>
+    </xs:choice>
+  </xs:complexType>
   <xs:complexType name="flexContainer">
     <xs:sequence>
       <xs:element type="xs:string" name="id"/>
@@ -574,14 +581,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="flexItem">
-    <xs:sequence>
-      <xs:choice>
-        <xs:element type="dataRef" name="dataRef"/>
-        <xs:element type="flexContainer" name="flex"/>
-        <xs:element type="gridContainer" name="grid"/>
-      </xs:choice>
-      <xs:element type="flexItemProperties" name="properties" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="layoutItem">
+        <xs:sequence>
+          <xs:element type="flexItemProperties" name="properties" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="gridContainer">
     <xs:sequence>
@@ -591,14 +597,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="gridItem">
-    <xs:sequence>
-      <xs:choice>
-        <xs:element type="dataRef" name="dataRef"/>
-        <xs:element type="flexContainer" name="flex"/>
-        <xs:element type="gridContainer" name="grid"/>
-      </xs:choice>
-      <xs:element type="gridItemProperties" name="properties" minOccurs="0"/>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="layoutItem">
+        <xs:sequence>
+          <xs:element type="gridItemProperties" name="properties" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="flexContainerProperties">
     <xs:complexContent>
