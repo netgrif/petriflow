@@ -89,6 +89,7 @@
     </xs:sequence>
     <xs:attribute type="data_type" name="type" use="required"/>
     <xs:attribute type="xs:boolean" name="immediate"/>
+    <xs:attribute type="scope" name="scope"/>
   </xs:complexType>
   <xs:complexType name="function">
     <xs:simpleContent>
@@ -135,6 +136,7 @@
         </xs:unique>
       </xs:element>
     </xs:sequence>
+    <xs:attribute type="scope" name="scope"/>
   </xs:complexType>
   <xs:complexType name="place">
     <xs:sequence>
@@ -171,6 +173,7 @@
         </xs:unique>
       </xs:element>
     </xs:sequence>
+    <xs:attribute type="scope" name="scope"/>
   </xs:complexType>
   <xs:complexType name="i18n">
     <xs:sequence>
