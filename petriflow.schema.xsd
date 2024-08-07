@@ -561,6 +561,7 @@
       <xs:enumeration value="options"/>
       <xs:enumeration value="optionsExpression"/>
       <xs:enumeration value="roles"/>
+      <xs:enumeration value="any"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="actions">
