@@ -75,10 +75,7 @@
       <xs:element type="init" name="init" minOccurs="0"/>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="encryption" name="encryption" minOccurs="0"/>
-      <xs:choice>
-        <xs:element type="action" name="action" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element type="dataEvent" name="event" maxOccurs="unbounded" minOccurs="0"/>
-      </xs:choice>
+      <xs:element type="dataEvent" name="event" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
         <xs:unique name="dataPropertyUniqueKey">
@@ -353,7 +350,6 @@
       <xs:element type="xs:boolean" name="create" minOccurs="0"/>
       <xs:element type="xs:boolean" name="delete" minOccurs="0"/>
       <xs:element type="xs:boolean" name="view" minOccurs="0"/>
-      <xs:element type="action" name="action" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="roleRef">
