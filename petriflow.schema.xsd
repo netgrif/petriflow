@@ -7,7 +7,7 @@
   <xs:element name="process">
     <xs:complexType>
       <xs:sequence>
-        <xs:element type="xs:string" name="id"/>
+        <xs:element type="identifier" name="id"/>
         <xs:element type="xs:string" name="version"/>
         <xs:element type="extension" name="extends" minOccurs="0"/>
         <xs:element type="i18nStringType" name="title"/>
@@ -52,13 +52,13 @@
   </xs:element>
   <xs:complexType name="extension">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="xs:string" name="version"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="data">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="i18nStringType" name="title"/>
       <xs:element type="i18nStringType" name="placeholder" minOccurs="0"/>
       <xs:element type="i18nStringType" name="desc" minOccurs="0"/>
@@ -101,7 +101,7 @@
   </xs:complexType>
   <xs:complexType name="role">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="i18nStringType" name="title"/>
       <xs:element type="event" name="event" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
@@ -115,7 +115,7 @@
   </xs:complexType>
   <xs:complexType name="transition">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
       <xs:element type="i18nStringType" name="title"/>
@@ -140,7 +140,7 @@
   </xs:complexType>
   <xs:complexType name="place">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="nonNegativeInteger" name="x"/>
       <xs:element type="nonNegativeInteger" name="y"/>
       <xs:element type="i18nStringType" name="title" minOccurs="0"/>
@@ -160,7 +160,7 @@
   </xs:complexType>
   <xs:complexType name="arc">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element name="type" type="arc_type" default="regular"/>
       <xs:element type="xs:string" name="sourceId"/>
       <xs:element type="xs:string" name="destinationId"/>
@@ -363,7 +363,7 @@
   </xs:complexType>
   <xs:complexType name="permissionRef">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="roleRefLogic" name="logic"/>
       <xs:element type="properties" name="properties" minOccurs="0">
         <xs:unique name="permissionRefPropertyUniqueKey">
@@ -385,7 +385,7 @@
   </xs:complexType>
   <xs:complexType name="casePermissionRef">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="caseLogic" name="caseLogic"/>
     </xs:sequence>
   </xs:complexType>
@@ -399,7 +399,7 @@
   </xs:simpleType>
   <xs:complexType name="dataRef">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="dataRefLogic" name="logic"/>
       <xs:element type="component" name="component" minOccurs="0"/>
       <xs:element type="dataEvent" name="event" minOccurs="0" maxOccurs="unbounded"/>
@@ -479,7 +479,7 @@
   </xs:complexType>
   <xs:complexType name="baseEvent">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="actions" name="actions" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="i18nStringType" name="message" minOccurs="0"/>
       <xs:element type="properties" name="properties" minOccurs="0">
@@ -614,7 +614,7 @@
   </xs:complexType>
   <xs:complexType name="flexContainer">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="flexItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="flexContainerProperties" name="properties" minOccurs="0"/>
     </xs:sequence>
@@ -630,7 +630,7 @@
   </xs:complexType>
   <xs:complexType name="gridContainer">
     <xs:sequence>
-      <xs:element type="xs:string" name="id"/>
+      <xs:element type="identifier" name="id"/>
       <xs:element type="gridItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="gridContainerProperties" name="properties" minOccurs="0"/>
     </xs:sequence>
@@ -850,5 +850,10 @@
       <xs:enumeration value="column"/>
       <xs:enumeration value="dense"/>
     </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="identifier">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[$_a-zA-Z][_a-zA-Z0-9]*"/>
+      </xs:restriction>
   </xs:simpleType>
 </xs:schema>
