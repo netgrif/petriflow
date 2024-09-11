@@ -45,7 +45,7 @@
       </xs:choice>
       <xs:element type="actionRef" name="actionRef" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="documentRef" name="documentRef" minOccurs="0"/>
-      <xs:element type="xs:string" name="remote" minOccurs="0"/>
+      <xs:element type="remote" name="remote" minOccurs="0"/>
       <xs:element type="xs:int" name="length" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
     </xs:sequence>
@@ -601,6 +601,21 @@
     <xs:simpleContent>
       <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="remote">
+    <xs:sequence>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ftp"/>
+            <xs:enumeration value="minio"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="host" minOccurs="0"/>
+      <xs:element type="xs:string" name="bucket" minOccurs="0"/>
+      <xs:element type="xs:string" name="credentials" minOccurs="0"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="trigger">
     <!--todo: only if time -->
