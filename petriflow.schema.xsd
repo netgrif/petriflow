@@ -604,14 +604,7 @@
   </xs:complexType>
   <xs:complexType name="remote">
     <xs:sequence>
-      <xs:element name="type">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="ftp"/>
-            <xs:enumeration value="minio"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:element type="xs:string" name="type"/>
       <xs:element type="xs:string" name="host" minOccurs="0"/>
       <xs:element type="xs:string" name="bucket" minOccurs="0"/>
       <xs:element type="xs:string" name="credentials" minOccurs="0"/>
