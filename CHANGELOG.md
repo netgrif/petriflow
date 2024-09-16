@@ -5,13 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.5](https://github.com/netgrif/petriflow/releases/tag/v1.0.5) (2023-09-12)
+## [1.0.5](https://github.com/netgrif/petriflow/releases/tag/v1.0.5) (2023-09-17)
 
 ### Added
 
 - [NAE-1927] Shared roles
 - [NAE-1946] Remote file connector to S3
-
+- [NAE-1892] Validation registry
 
 ## [1.0.4](https://github.com/netgrif/petriflow/releases/tag/v1.0.4) (2023-12-12)
 
