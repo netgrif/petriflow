@@ -595,6 +595,20 @@
     <xs:sequence>
       <xs:element name="expression" type="valid"/>
       <xs:element name="message" type="i18nStringType"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="arguments" type="arguments" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arguments">
+    <xs:sequence>
+      <xs:element type="argument" name="argument" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="argument">
+    <xs:sequence>
+      <xs:element name="key" type="xs:string"/>
+      <xs:element name="dynamic" type="xs:boolean"/>
+      <xs:element name="value" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="init">
@@ -602,11 +616,14 @@
       <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="remote">
-    <xs:restriction base="xs:string">
-      <xs:maxLength value="0"/>
-    </xs:restriction>
-  </xs:simpleType>
+  <xs:complexType name="remote">
+    <xs:sequence>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="host" minOccurs="0"/>
+      <xs:element type="xs:string" name="bucket" minOccurs="0"/>
+      <xs:element type="xs:string" name="credentials" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="trigger">
     <!--todo: only if time -->
     <xs:choice minOccurs="0">
