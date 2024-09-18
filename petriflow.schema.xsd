@@ -45,7 +45,7 @@
       </xs:choice>
       <xs:element type="actionRef" name="actionRef" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element type="documentRef" name="documentRef" minOccurs="0"/>
-      <xs:element type="remote" name="remote" minOccurs="0"/>
+      <xs:element type="storage" name="storage" minOccurs="0"/>
       <xs:element type="xs:int" name="length" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
     </xs:sequence>
@@ -602,12 +602,11 @@
       <xs:extension base="i18nStringTypeWithExpression"/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="remote">
+  <xs:complexType name="storage">
     <xs:sequence>
       <xs:element type="xs:string" name="type"/>
       <xs:element type="xs:string" name="host" minOccurs="0"/>
       <xs:element type="xs:string" name="bucket" minOccurs="0"/>
-      <xs:element type="xs:string" name="credentials" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="trigger">
