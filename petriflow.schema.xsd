@@ -49,6 +49,7 @@
       <xs:element type="remote" name="remote" minOccurs="0"/>
       <xs:element type="xs:int" name="length" minOccurs="0"/>
       <xs:element type="allowedNets" name="allowedNets" minOccurs="0"/>
+      <xs:element type="timeZone" name="timeZone" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute type="data_type" name="type" use="required"/>
     <xs:attribute type="xs:boolean" name="immediate"/>
@@ -331,6 +332,43 @@
     </xs:restriction>
   </xs:simpleType>
   <!-- ===== INNER ELEMENTS ===== -->
+  <xs:complexType name="timeZone">
+    <xs:sequence>
+      <xs:element type="zoneId" name="zoneId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="zoneId">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACT"/>
+      <xs:enumeration value="AET"/>
+      <xs:enumeration value="AGT"/>
+      <xs:enumeration value="ART"/>
+      <xs:enumeration value="AST"/>
+      <xs:enumeration value="BET"/>
+      <xs:enumeration value="BST"/>
+      <xs:enumeration value="CAT"/>
+      <xs:enumeration value="CNT"/>
+      <xs:enumeration value="CST"/>
+      <xs:enumeration value="CTT"/>
+      <xs:enumeration value="EAT"/>
+      <xs:enumeration value="ECT"/>
+      <xs:enumeration value="IET"/>
+      <xs:enumeration value="IST"/>
+      <xs:enumeration value="JST"/>
+      <xs:enumeration value="MIT"/>
+      <xs:enumeration value="NET"/>
+      <xs:enumeration value="NST"/>
+      <xs:enumeration value="PLT"/>
+      <xs:enumeration value="PNT"/>
+      <xs:enumeration value="PRT"/>
+      <xs:enumeration value="PST"/>
+      <xs:enumeration value="SST"/>
+      <xs:enumeration value="VST"/>
+      <xs:enumeration value="EST"/>
+      <xs:enumeration value="MST"/>
+      <xs:enumeration value="HST"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="template">
     <xs:restriction base="xs:string">
       <xs:enumeration value="material"/>
