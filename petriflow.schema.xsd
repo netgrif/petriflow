@@ -621,7 +621,7 @@
   <xs:simpleType name="remote">
     <xs:annotation>
       <xs:documentation>
-        This attribute is deprecated, use <storage>...</storage> instead.
+        This attribute is deprecated, use <storage>...</storage> instead
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
