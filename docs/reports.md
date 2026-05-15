@@ -11,6 +11,8 @@ The following list consists of the interim reports of the project:
 1. <a href="_media/reports/Requirements.pdf">Requirements on a low-code language</a>
 2. <a href="_media/reports/Definition.pdf" >Definition of object-centric process</a>
 3. <a href="_media/reports/Inter_process_communication_and_relationships.pdf" >Definition of inter-process communication</a>
+4. <a href="_media/reports/Query_Language.pdf" >Definition of query language</a>
+5. <a href="_media/reports/Translation_of_subset_of_BPMN.pdf" >Translation of subset of BPMN</a>
 
 [//]: # (4. <a href="_media/reports/Inheritance.pdf" >Definition of inheritance and interface</a>)
 
