@@ -275,6 +275,7 @@
       <xs:enumeration value="button"/>
       <xs:enumeration value="taskRef"/>
       <xs:enumeration value="caseRef"/>
+      <xs:enumeration value="processRef"/>
       <!-- deprecated --> <xs:enumeration value="filter"/>
       <xs:enumeration value="caseFilter"/>
       <xs:enumeration value="taskFilter"/>
