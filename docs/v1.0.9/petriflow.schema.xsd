@@ -249,9 +249,9 @@
   <xs:simpleType name="data_type">
     <xs:annotation>
       <xs:documentation>
-        Deprecated attributes:
-        - filter: use caseFilter/taskFilter/processFilter
-        - user: use actor
+        Deprecated attributes:<br/>
+        - filter: use caseFilter/taskFilter/processFilter<br/>
+        - user: use actor<br/>
         - userList: use actorList
       </xs:documentation>
     </xs:annotation>
@@ -275,6 +275,7 @@
       <xs:enumeration value="button"/>
       <xs:enumeration value="taskRef"/>
       <xs:enumeration value="caseRef"/>
+      <xs:enumeration value="processRef"/>
       <!-- deprecated --> <xs:enumeration value="filter"/>
       <xs:enumeration value="caseFilter"/>
       <xs:enumeration value="taskFilter"/>
