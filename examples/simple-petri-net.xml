@@ -14,28 +14,28 @@
 		<id>t4</id>
 		<x>620</x>
 		<y>300</y>
+		<label>Take</label>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>Take</label>
 	</transition>
 	<transition>
 		<id>t6</id>
 		<x>620</x>
 		<y>420</y>
+		<label>Finish</label>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label>Finish</label>
 	</transition>
 	<transition>
 		<id>t7</id>
 		<x>380</x>
 		<y>300</y>
+		<label></label>
 		<layout>
 			<offset>0</offset>
 		</layout>
-		<label></label>
 	</transition>
 	<!-- PLACES -->
 	<place>
