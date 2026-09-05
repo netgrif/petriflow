@@ -1,21 +1,33 @@
 {
   "name": "petriflow",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
+  "description": "Next-generation end-to-end low code language based on Petri nets",
+  "keywords": [
+    "petriflow",
+    "low-code",
+    "object-centric processes",
+    "language",
+    "petri nets",
+    "workflow"
+  ],
+  "author": "NETGRIF, s.r.o.",
   "license": "Apache-2.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@12.3.4+sha512.961aa41fb077da3a04a441d9f8e15ebc0c96da8ef710b2eb67bf9ee7cb0610eabd48f1fd85f51cffe73846785fa0f87c56a3a872a1d893f8446741b5cce45457",
+  "engines": {
+    "node": "^22"
+  },
   "devDependencies": {
-    "vitepress": "^1.6.3",
-    "vue": "^3.5.13"
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "2.0.0-alpha.20"
+  },
+  "dependencies": {
+    "@catppuccin/vitepress": "^0.1.4"
   }
 }

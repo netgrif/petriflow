@@ -4,14 +4,14 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <variables>
-        <web-root>https://petriflow.com</web-root>
+        <web-root>https://petriflow.org</web-root>
         <download-page>https://builder.netgrif.cloud</download-page>
         <download-title>Build your app</download-title>
         <showDownloadButton>true</showDownloadButton>
         <primary-color>#2497F2</primary-color>
         <header-logo>logo.png</header-logo>
         <custom-favicons>favicon.ico</custom-favicons>
-        <versions-switcher>https://petriflow.com/help-versions.json</versions-switcher>
+        <versions-switcher>https://petriflow.org/help-versions.json</versions-switcher>
     </variables>
 
     <footer>

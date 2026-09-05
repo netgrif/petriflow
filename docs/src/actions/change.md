@@ -1,6 +1,6 @@
-## change
+# change
 
-### change value
+## change value
 
 > change `field` value `newValueClosure`
 > 
@@ -15,7 +15,7 @@ trigger set on given field are not triggered.
 | field             | `Field`   | Reference to process data field. The local variable from the action reference mapping can be used. |
 | newValueClosure   | `Closure` | Groovy closure which returned object is set as new value of the data field.                        |
 
-#### Example
+### Example
 
 ```groovy
 period: f.108001,
@@ -32,7 +32,7 @@ change period value {
 }
 ```
 
-### change choices
+## change choices
 
 > change `field` choices `newChoicesClosure`
 
@@ -45,7 +45,7 @@ On change of choices no additional event is triggered on given `field`.
 | field             | `Field`   | Reference to process data field. The local variable from the action reference mapping can be used. |
 | newChoicesClosure | `Closure<List<String>\|Set<String>>` | Groovy closure which returned object is set as new choices of the data field.                         |
 
-#### Example
+### Example
 
 ```groovy
 other: f.410001,
@@ -57,7 +57,7 @@ change field choices {
 }
 ```
 
-### change options
+## change options
 
 > change `field` options `newOptionsClosure`
 
@@ -70,7 +70,7 @@ Option key is always type of string. Option value can be simple string or locali
 | field             | `Field`   | Reference to process data field. The local variable from the action reference mapping can be used. |
 | newOptionsClosure | `Closure<Map<String, String\|I18NString>>` | Groovy closure which returned object is set as new choices of the data field.                         |
 
-#### Example
+### Example
 
 ```groovy
 other: f.410001,

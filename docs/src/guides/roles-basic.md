@@ -7,7 +7,7 @@ You will build a process-driven application that contains few basic roles. You w
 ## What you will need
 
 * 10 - 15 minutes
-* Netgrif Application Engine CE already installed or created free account at [demo.netgrif.com](https://demo.netgrif.com)
+* Netgrif Application Engine CE already installed or created free account at [etask.netgrif.cloud](https://etask.netgrif.cloud)
 * Access to the internet for [builder.netgrif.com](https://builder.netgrif.com) site
 
 ## Tutorial
@@ -18,31 +18,24 @@ In the following process, you will a create process with four states (places) an
 
 _Process that will be used all in examples below:_
 
-<a href="_media/roles-basic/example.xml" download="example" style="color:blue;">Download the process</a>
+<a href="/guides/roles-basic/example.xml" download="example" style="color:blue;">Download the process</a>
 
 * Each task will be assigned to a different role. To create roles, you need to select the `Role edit` view in the main toolbar.
 * In order to create a new role inside the `Role edit` view, you need to click the `Add role` button. After the role was created open the role and specify its `ID` (by default it is generated, but you can change it) and `Title`.
-* Create at least three roles: `Admin`, `Role of the first user` and `Role of the second user`.</li>
-
+* Create at least three roles: `Admin`, `Role of the first user` and `Role of the second user`.
 _Detail where is Role edit view located:_
 
-<p align="center">
-    <img src="_media/roles-basic/1.png">
-</p>
+![Role edit view location](/guides/roles-basic/1.png)
 
 _Detail how to create one role in Role edit view:_
 
-<p align="center">
-    <img src="_media/roles-basic/2.png">
-</p>
+![Creating a role](/guides/roles-basic/2.png)
 
 _Example of roles creation:_
 
-<p align="center">
-    <video controls style="height: 400px;">
-      <source src="_media/roles-basic/1.mp4" type="video/mp4">
-    </video>
-</p>
+<video controls style="height: 400px;">
+  <source src="/guides/roles-basic/1.mp4" type="video/mp4">
+</video>
 
 ### Assign roles to tasks
 
@@ -50,46 +43,36 @@ In order to assign roles to tasks you have to:
 1. Use the right mouse click while the Select tool is selected in Edit view and choose `Manage permissions`.
 2. Dialogue called `Transition Permissions` will appear with multiple options. In this tutorial, we will go just with Perform column.
 3. For transitions  `Choose first`, `Choose second` and `Task of the admin` click once in row admin, column Perform.
-4. For transition  `First` click once in row `role_1`, column `Perform`.</li>
-5. For transition  `Second` click once in row `role_1`, column `Perform`.</li>
-
+4. For transition  `First` click once in row `role_1`, column `Perform`.5. For transition  `Second` click once in row `role_1`, column `Perform`.
 
 _Detail of how to get to Manage Permissions:_
 
-<p align="center">
-    <img src="_media/roles-basic/3.png">
-</p>
+![Assigning a role to perform](/guides/roles-basic/3.png)
 
 _Detail of how to assign a role to Perform:_
 
-<p align="center">
-    <img src="_media/roles-basic/4.png">
-</p>
+![Manage permissions](/guides/roles-basic/4.png)
 
 _Example of roles assignment to tasks:_
 
-<p align="center">
-    <video controls style="height: 400px;">
-      <source src="_media/roles-basic/2.mp4" type="video/mp4">
-    </video>
-</p>
+<video controls style="height: 400px;">
+  <source src="/guides/roles-basic/2.mp4" type="video/mp4">
+</video>
 
 ### Upload process into the Application Engine
 
 _Process used all in examples above:_
 
-<a href="_media/roles-basic/roles.xml" download="roles" style="color:blue;">Download the process</a>
+<a href="/guides/roles-basic/roles.xml" download="roles" style="color:blue;">Download the process</a>
 
 Before uploading the process with all the roles into the Application Engine, you have to download/save it.
 
 _Detail of how to export created process:_
 
-<p align="center">
-    <img src="_media/roles-basic/5.png">
-</p>
+![Exporting the process](/guides/roles-basic/5.png)
 
-In order to upload the process into <a href="https://demo.netgrif.com/" target="_blank">Demo of the Netgrif Application Engine</a> follow steps:
-1. Log In in to the <a href="https://demo.netgrif.com/" target="_blank">the Demo of the NAE</a>. If you do not have account, Sing Up first.
+In order to upload the process into <a href="https://etask.netgrif.cloud/" target="_blank">Demo of the Netgrif Application Engine</a> follow steps:
+1. Log In in to the <a href="https://etask.netgrif.cloud/" target="_blank">the Demo of the NAE</a>. If you do not have account, Sing Up first.
 2. Once you are logged in, go to section `Processes` in the left navigation menu.
 3. In the section `Processes`, click the `upload` button on the bottom right side of the screen.
 4. In the right overlay section, press button `Choose a process file`.
@@ -100,15 +83,14 @@ In order to upload the process into <a href="https://demo.netgrif.com/" target="
 9. Once you choose your process, press `Create` button and your process instance/case is created.
 
 _Example of process uploaded to Application Engine:_
-<p align="center">
-    <video controls style="height: 400px;">
-      <source src="_media/roles-basic/3.mp4" type="video/mp4">
-    </video>
-</p>
+
+<video controls style="height: 400px;">
+  <source src="/guides/roles-basic/3.mp4" type="video/mp4">
+</video>
 
 ### Play with the roles
 
-In order to play with the roles of your process in <a href="https://demo.netgrif.com/" target="_blank">the Demo of the Netgrif Application Engine</a> follow these steps:
+In order to play with the roles of your process in <a href="https://etask.netgrif.cloud/" target="_blank">the Demo of the Netgrif Application Engine</a> follow these steps:
 1. Once you are logged in, go to the section `Role management` in the left navigation menu.
 2. In the `Role management` section, select a user (a user that is representing you in this case) from the left side of the screen to who you want to change roles.
 3. In the section `Role management`, choose a process (your uploaded process in this case) from the right side of the screen. Now choose roles of the process that you want to assign to the selected user (e.g. Admin).
@@ -116,11 +98,10 @@ In order to play with the roles of your process in <a href="https://demo.netgrif
 5. Repeat the process above but try to use different roles or multiple roles at the same time. Check the video below - get to know how to get through the whole process you created in the NAB.
 
 _Example of changing roles of one user in one process (changes are visible immediately):_
-<p align="center">
-    <video controls style="height: 400px;">
-      <source src="_media/roles-basic/4.mp4" type="video/mp4">
-    </video>
-</p>
+
+<video controls style="height: 400px;">
+  <source src="/guides/roles-basic/4.mp4" type="video/mp4">
+</video>
 
 ### Process application created in the tutorial (an XML file)
 

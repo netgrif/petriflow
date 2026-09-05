@@ -4,4 +4,4 @@
 
 > close `transitions`
 
-See [cancelTask](actions.md#cancelTask)
+See [cancelTask](./cancelTask)
